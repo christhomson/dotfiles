@@ -5,14 +5,10 @@ elif [[ `uname` == "Linux" ]]; then
 fi
 
 echo "We need some information to setup your SSH key and Git config."
-echo -n "What's your name? "
-read name
+read -p "What's your name? " name
+read -p "What's your email address? " email
+read -p "What's your GitHub username? " github_username
 
-echo -n "What's your email address? "
-read email
-
-echo -n "What's your GitHub username? "
-read github_username
 mkdir -p ~/.ssh
 ssh-keygen -t rsa -C "$email"
 cat ~/.ssh/id_rsa.pub
