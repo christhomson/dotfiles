@@ -18,14 +18,23 @@ fi
 echo "Press enter to continue once you've added your SSH key to your GitHub account."
 read
 
-if [[ MAC_OS_X ]]; then
-  echo "Installing Homebrew."
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-  echo "Installing git with brew."
-  brew install git
-elif [[ LINUX ]]; then
-  echo "Installing git-core with apt-get (sudo permission required)."
-  sudo apt-get install git-core
+if ! [[ `git --version >/dev/null 2>&1` ]]; then
+  echo "Git is already installed. Awesome."
+else
+  if [[ MAC_OS_X ]]; then
+    if ! [[ `brew -v >/dev/null 2>&1` ]]; then
+      echo "Homebrew is already installed. Let's move on!"
+    else
+      echo "Installing Homebrew."
+      ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    fi
+
+    echo "Installing git with brew."
+    brew install git
+  elif [[ LINUX ]]; then
+    echo "Installing git-core with apt-get (sudo permission required)."
+    sudo apt-get install git-core
+  fi
 fi
 
 git clone git@github.com:christhomson/dotfiles ~/.dotfiles
