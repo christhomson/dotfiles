@@ -91,11 +91,11 @@ while true; do
       if [[ -n $MAC_OS_X ]]; then
         brew install fish
       elif [[ -n $LINUX_SUDO ]]; then
+        sudo apt-add-repository ppa:fish-shell/release-2
+        sudo apt-get update
         sudo apt-get install fish
       else
         echo "Installing fish from source."
-        sudo apt-add-repository ppa:fish-shell/release-2
-        sudo apt-get update
         cd ~
         mkdir -p usr
         curl http://fishshell.com/files/2.1.0/fish-2.1.0.tar.gz > ~/fish.tar.gz
