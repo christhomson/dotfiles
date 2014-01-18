@@ -44,13 +44,13 @@ else
   fi
 fi
 
-echo "Cloning dotfiles."
-git clone git@github.com:christhomson/dotfiles ~/.dotfiles
+echo "Cloning dotfiles into ~/.config."
+git clone git@github.com:christhomson/dotfiles ~/.config
 
 echo "Linking dotfiles."
-ln -s ~/.dotfiles/git/config ~/.gitconfig
-ln -s ~/.dotfiles/ssh/config ~/.ssh/config
-ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/.config/git/config ~/.gitconfig
+ln -s ~/.config/ssh/config ~/.ssh/config
+ln -s ~/.config/vim/vimrc ~/.vimrc
 
 echo "Configuring Git for $github_username ($name: $email)"
 git config --global user.name "$name"
@@ -74,8 +74,8 @@ while true; do
         ./configure --prefix=$absolute_home/usr
         make
         make install
-        break;;
       fi
+      break;;
     [Nn]* ) break;;
     * ) echo "Please answer yes or no.";;
   esac
@@ -89,9 +89,9 @@ while true; do
       curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
       rm -f ~/.zshrc
       rm -rf ~/.oh-my-zsh/custom
-      ln -s ~/.dotfiles/zsh/custom ~/.oh-my-zsh/custom
-      ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc 
-      ln -s ~/.dotfiles/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
+      ln -s ~/.config/zsh/custom ~/.oh-my-zsh/custom
+      ln -s ~/.config/zsh/zshrc ~/.zshrc 
+      ln -s ~/.config/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
       break;;
     [Nn]* ) break;;
     * ) echo "Please answer yes or no.";;
