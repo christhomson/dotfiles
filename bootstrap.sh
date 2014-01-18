@@ -7,6 +7,7 @@ fi
 echo "We need some information to setup your SSH key and Git config."
 read -p "What's your name? " name
 read -p "What's your email address? " email
+read -p "What's your GitHub username? " github_username
 
 mkdir -p ~/.ssh
 ssh-keygen -t rsa -C "$email"
@@ -41,10 +42,6 @@ else
   fi
 fi
 
-echo "Configuring Git for $name ($email)"
-git config --global user.name "$name"
-git config --global user.email "$email"
-
 echo "Cloning dotfiles."
 git clone git@github.com:christhomson/dotfiles ~/.dotfiles
 
@@ -52,6 +49,11 @@ echo "Linking dotfiles."
 ln -s ~/.dotfiles/git/config ~/.gitconfig
 ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+
+echo "Configuring Git for $github_username ($name: $email)"
+git config --global user.name "$name"
+git config --global user.email "$email"
+git config --global github.user "$github_username"
 
 echo "Installing oh-my-zsh."
 curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
