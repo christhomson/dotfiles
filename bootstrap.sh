@@ -2,8 +2,24 @@
 
 if [[ `uname` == "Darwin" ]]; then
   MAC_OS_X=1
-elif [[ `uname` == "Linux" ]]; then
-  LINUX=1
+elif [[ `hostname` =~ linux0[0-9][0-9]\.student\.cs ]]; then
+  LINUX_NO_SUDO=1
+else
+  while true; do
+    read -p "Do you have sudo access?" sudo_yn
+    case $sudo_yn in
+      [Yy]* )
+        LINUX_SUDO=1;
+        sudo apt-get update
+        break;;
+      [Nn]* )
+        LINUX_NO_SUDO=1
+        cd ~
+        ABSOLUTE_HOME=`pwd`
+        break;;
+      * ) "Please answer yes or no."
+    esac
+  done
 fi
 
 echo "We need some information to setup your SSH key and Git config."
@@ -38,9 +54,20 @@ else
 
     echo "Installing git with brew."
     brew install git
-  elif [[ -n $LINUX ]]; then
+  elif [[ -n $LINUX_SUDO ]]; then
     echo "Installing git-core with apt-get (sudo permission required)."
     sudo apt-get install git-core
+  else
+    echo "Installing git from source."
+    cd ~
+    mkdir -p usr
+    curl https://github.com/git/git/archive/v1.8.5.3.tar.gz > git.tar.gz
+    tar -zxf git.tar.gz
+    cd ~/git-1.8.5.3
+    make prefix=$ABSOLUTE_HOME/usr all
+    make prefix=$ABSOLUTE_HOME/usr install
+    cd ~
+    rm -rf git-1.8.5.3
   fi
 fi
 
@@ -63,15 +90,18 @@ while true; do
     [Yy]* )
       if [[ -n $MAC_OS_X ]]; then
         brew install fish
+      elif [[ -n $LINUX_SUDO ]]; then
+        sudo apt-get install fish
       else
-        # install fish from source
+        echo "Installing fish from source."
+        sudo apt-add-repository ppa:fish-shell/release-2
+        sudo apt-get update
         cd ~
-        mkdir usr
+        mkdir -p usr
         curl http://fishshell.com/files/2.1.0/fish-2.1.0.tar.gz > ~/fish.tar.gz
         tar -zxvf ~/fish.tar.gz
-        absolute_home=`pwd`
         cd fish-2.1.0/
-        ./configure --prefix=$absolute_home/usr
+        ./configure --prefix=$ABSOLUTE_HOME/usr
         make
         make install
         cd ~
@@ -93,7 +123,7 @@ while true; do
       rm -f ~/.zshrc
       rm -rf ~/.oh-my-zsh/custom
       ln -s ~/.config/zsh/custom ~/.oh-my-zsh/custom
-      ln -s ~/.config/zsh/zshrc ~/.zshrc 
+      ln -s ~/.config/zsh/zshrc ~/.zshrc
       ln -s ~/.config/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
       break;;
     [Nn]* ) break;;
