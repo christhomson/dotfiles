@@ -57,18 +57,56 @@ git config --global user.name "$name"
 git config --global user.email "$email"
 git config --global github.user "$github_username"
 
-echo "Installing oh-my-zsh."
-curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
+while true; do
+  read -p "Do you want fish? " fish_yn
+  case $fish_yn in
+    [Yy]* )
+      if [[ -n $MAC_OS_X ]]; then
+        brew install fish
+      else
+        # install fish from source
+        cd ~
+        mkdir usr
+        curl http://fishshell.com/files/2.1.0/fish-2.1.0.tar.gz > ~/fish.tar.gz
+        tar -zxvf ~/fish.tar.gz
+        absolute_home=`pwd`
+        cd fish-2.1.0/
+        ./configure --prefix=$absolute_home/usr
+        make
+        make install
+        break;;
+      fi
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
 
-rm -f ~/.zshrc
-rm -rf ~/.oh-my-zsh/custom
-ln -s ~/.dotfiles/zsh/custom ~/.oh-my-zsh/custom
-ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-ln -s ~/.dotfiles/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
+while true; do
+  read -p "Do you want zsh? " zsh_yn
+  case $zsh_yn in
+    [Yy]* )
+      echo "Installing oh-my-zsh."
+      curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
+      rm -f ~/.zshrc
+      rm -rf ~/.oh-my-zsh/custom
+      ln -s ~/.dotfiles/zsh/custom ~/.oh-my-zsh/custom
+      ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc 
+      ln -s ~/.dotfiles/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
+      break;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no.";;
+  esac
+done
 
 echo "Installing Vundle, and installing bundles that are described in .vimrc."
 git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
 
 echo "All done!"
-zsh
+
+if [[ $fish_yn =~ [Yy]* ]]; then
+  echo "You'll need to change your default shell to fish yourself."
+  fish
+elif
+  zsh
+fi
