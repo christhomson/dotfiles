@@ -66,3 +66,5 @@ ln -s ~/.dotfiles/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-
 echo "Installing Vundle, and installing bundles that are described in .vimrc."
 git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/vundle
 vim +BundleInstall +qall
+
+echo "All done!"
