@@ -70,5 +70,5 @@ echo "Installing Vundle, and installing bundles that are described in .vimrc."
 git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/vundle
 vim +BundleInstall +qall
 
-source ~/.zshrc
 echo "All done!"
+zsh
