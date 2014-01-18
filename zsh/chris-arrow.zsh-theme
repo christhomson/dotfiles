@@ -1,7 +1,11 @@
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="yellow"; fi
 
 PROMPT='%{$fg[$NCOLOR]%}%c: %{$reset_color%}'
-RPROMPT='%{$fg[$NCOLOR]%}%p $(git_prompt_info)%{$reset_color%}'
+
+# Git is incredibly slow on the UW CS servers.
+if ! [[ $LOCATION == "school" ]]; then
+  RPROMPT='%{$fg[$NCOLOR]%}%p $(git_prompt_info)%{$reset_color%}'
+fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""

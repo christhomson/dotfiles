@@ -1,5 +1,5 @@
-# MACHINE = personal, work, school, server
-MACHINE="generic"
+# LOCATION = home, work, school, server
+export LOCATION="anywhere"
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -43,7 +43,7 @@ export PATH="/usr/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="~/bin:$PATH"
 
-if [[ MACHINE == "personal" ]]; then
+if [[ LOCATION == "home" ]]; then
 export GOPATH="$HOME/dev/go"
 export PATH="/usr/texbin:$PATH"
 export PATH="/Library/Ruby/Gems/1.8/bin:$PATH"
