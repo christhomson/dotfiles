@@ -19,7 +19,7 @@ let g:Powerline_theme = 'default'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'Raimondi/delimitMate'
-Bundle 'ervandrew/supertab'
+Bundle 'ervandew/supertab'
 
 filetype plugin indent on
 
