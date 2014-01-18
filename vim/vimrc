@@ -5,7 +5,7 @@ syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
 " VUNDLE initialization
-set rtp+=~/.dotfiles/vim/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
