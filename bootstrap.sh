@@ -4,8 +4,12 @@ elif [[ `uname` == "Linux" ]]; then
   LINUX=1
 fi
 
+echo "We need some information to setup your SSH key and Git config."
+read -p "What's your name? " name
+read -p "What's your email address? " email
+
 mkdir -p ~/.ssh
-ssh-keygen -t rsa -C "chris@cthomson.ca"
+ssh-keygen -t rsa -C "$email"
 cat ~/.ssh/id_rsa.pub
 echo "Please visit https://github.com/settings/ssh to add it."
 
@@ -37,15 +41,20 @@ else
   fi
 fi
 
+echo "Configuring Git for $name ($email)"
+git config --global user.name "$name"
+git config --global user.email "$email"
+
 git clone git@github.com:christhomson/dotfiles ~/.dotfiles
 
 ln -s ~/.dotfiles/git/config ~/.gitconfig
 ln -s ~/.dotfiles/ssh/config ~/.ssh/config
+ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 
 # oh my zsh
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 rm -rf ~/.oh-my-zsh/custom
 ln -s ~/.dotfiles/zsh/custom ~/.oh-my-zsh/custom
-ln -s ~/.dotfiles/zsh/profile ~/.zshrc
+ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/.dotfiles/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
