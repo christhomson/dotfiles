@@ -45,16 +45,22 @@ echo "Configuring Git for $name ($email)"
 git config --global user.name "$name"
 git config --global user.email "$email"
 
+echo "Cloning dotfiles."
 git clone git@github.com:christhomson/dotfiles ~/.dotfiles
 
+echo "Linking dotfiles."
 ln -s ~/.dotfiles/git/config ~/.gitconfig
 ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 
-# oh my zsh
+echo "Installing oh-my-zsh."
 curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 rm -rf ~/.oh-my-zsh/custom
 ln -s ~/.dotfiles/zsh/custom ~/.oh-my-zsh/custom
 ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/.dotfiles/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
+
+echo "Installing Vundle, and installing bundles that are described in .vimrc."
+git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/vundle
+vim +BundleInstall +qall
