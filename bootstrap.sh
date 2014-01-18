@@ -137,9 +137,3 @@ git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
 
 echo "All done!"
-
-if [[ $fish_yn =~ [Yy]* ]]; then
-  echo "You'll need to change your shell to fish yourself."
-elif
-  zsh
-fi
