@@ -1,13 +1,10 @@
 set nocompatible                  " Must come first because it changes other options.
 
-filetype off
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
-
 " VUNDLE initialization
-filetype off
 set rtp+=~/.dotfiles/vim/vundle/
 call vundle#rc()
 
@@ -20,8 +17,7 @@ let g:Powerline_theme = 'default'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
-
-filetype plugin indent on
+Bundle 'kchmck/vim-coffee-script'
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
@@ -46,7 +42,7 @@ set hlsearch                      " Highlight matches.
 set wrap                          " Turn on line wrapping.
 set scrolloff=9999                " Cursor stays at middle of screen.
 
-set notitle                         " Set the terminal's title
+set notitle                       " Set the terminal's title
 
 set visualbell                    " No beeping.
 
@@ -58,6 +54,8 @@ set spell                         " Spell check.
 
 set laststatus=2                  " Show the status line all the time
 
+set expandtab                     " Use spaces for tabs.
+set tabstop=2                     " 2 spaces is a tab.
 colorscheme slate 
 
 set cursorline
@@ -86,7 +84,6 @@ let g:tex_flavor='latex'
 let g:Tex_ViewRule_pdf = 'open -a Skim'
 let g:Imap_UsePlaceHolders = 0 " disable <++> markers
 "let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode $*'
-"
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-"
+autocmd FileType gitcommit spell textwidth=72
