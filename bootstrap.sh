@@ -41,4 +41,11 @@ git clone git@github.com:christhomson/dotfiles ~/.dotfiles
 
 ln -s ~/.dotfiles/git/config ~/.gitconfig
 ln -s ~/.dotfiles/ssh/config ~/.ssh/config
+
+# oh my zsh
+curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+
+rm -rf ~/.oh-my-zsh/custom
+ln -s ~/.dotfiles/zsh/custom ~/.oh-my-zsh/custom
 ln -s ~/.dotfiles/zsh/profile ~/.zshrc
+ln -s ~/.dotfiles/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
