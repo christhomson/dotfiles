@@ -74,6 +74,9 @@ while true; do
         ./configure --prefix=$absolute_home/usr
         make
         make install
+        cd ~
+        rm -rf fish-2.1.0/
+        rm fish.tar.gz
       fi
       break;;
     [Nn]* ) break;;
