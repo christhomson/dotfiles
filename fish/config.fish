@@ -1,6 +1,8 @@
 bind \e\[1\;5C forward-word
 bind \e\[1\;5D backward-word
 
+set fish_greeting ""
+
 # aliases
 alias ..='cd ..'
 alias b='bundle'
