@@ -108,8 +108,7 @@ vim +BundleInstall +qall
 echo "All done!"
 
 if [[ $fish_yn =~ [Yy]* ]]; then
-  echo "You'll need to change your default shell to fish yourself."
-  fish
+  echo "You'll need to change your shell to fish yourself."
 elif
   zsh
 fi
