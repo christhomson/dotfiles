@@ -6,7 +6,7 @@ elif [[ `hostname` =~ linux0[0-9][0-9]\.student\.cs ]]; then
   LINUX_NO_SUDO=1
 else
   while true; do
-    read -p "Do you have sudo access?" sudo_yn
+    read -p "Do you have sudo access? " sudo_yn
     case $sudo_yn in
       [Yy]* )
         LINUX_SUDO=1;
@@ -92,8 +92,6 @@ while true; do
       if [[ -n $MAC_OS_X ]]; then
         brew install fish
       elif [[ -n $LINUX_SUDO ]]; then
-        sudo apt-add-repository ppa:fish-shell/release-2
-        sudo apt-get update
         sudo apt-get install fish
       else
         echo "Installing fish from source."
