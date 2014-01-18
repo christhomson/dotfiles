@@ -14,13 +14,14 @@ else
         break;;
       [Nn]* )
         LINUX_NO_SUDO=1
-        cd ~
-        ABSOLUTE_HOME=`pwd`
         break;;
       * ) "Please answer yes or no."
     esac
   done
 fi
+
+cd ~
+ABSOLUTE_HOME=`pwd`
 
 echo "We need some information to setup your SSH key and Git config."
 read -p "What's your name? " name
