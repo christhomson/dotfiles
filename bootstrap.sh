@@ -14,7 +14,7 @@ read -p "What's your GitHub username? " github_username
 mkdir -p ~/.ssh
 ssh-keygen -t rsa -C "$email"
 cat ~/.ssh/id_rsa.pub
-echo "Please visit https://github.com/settings/ssh to add it."
+echo "Please visit https://github.com/settings/ssh to add this key to your account."
 
 if [[ -n $MAC_OS_X ]]; then
   pbcopy < ~/.ssh/id_rsa.pub
@@ -70,4 +70,5 @@ echo "Installing Vundle, and installing bundles that are described in .vimrc."
 git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/vundle
 vim +BundleInstall +qall
 
+source ~/.zshrc
 echo "All done!"
