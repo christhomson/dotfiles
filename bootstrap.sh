@@ -138,8 +138,9 @@ while true; do
   read -p "Do you want rbenv? " rbenv_yn
   case $rbenv_yn in
     [Yy]* )
-      echo "Installing rbenv."
+      echo "Installing rbenv and rbenv-gem-rehash."
       git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
+      git clone git@github.com:sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
       break;;
     [Nn]* ) break;;
     * ) echo "Please answer yes or no."
