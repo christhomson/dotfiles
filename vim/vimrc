@@ -86,4 +86,4 @@ let g:Imap_UsePlaceHolders = 0 " disable <++> markers
 "let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode $*'
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType gitcommit spell textwidth=72
+autocmd FileType gitcommit setlocal spell textwidth=72
