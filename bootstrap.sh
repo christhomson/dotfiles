@@ -134,4 +134,16 @@ echo "Installing Vundle, and installing bundles that are described in .vimrc."
 git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
 
+while true; do
+  read -p "Do you want rbenv? " rbenv_yn
+  case $rbenv_yn in
+    [Yy]* )
+      echo "Installing rbenv."
+      git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
+      break;;
+    [Nn]* ) break;;
+    * ) echo "Please answer yes or no."
+  esac
+done
+
 echo "All done!"
