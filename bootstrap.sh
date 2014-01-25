@@ -130,6 +130,26 @@ while true; do
   esac
 done
 
+if ! [[ `ag --version >/dev/null 2>&1` ]]; then
+  echo "ag is already installed."
+else
+  echo "Installing ag."
+  if [[ -n $MAC_OS_X ]]; then
+    brew install the_silver_searcher
+  elif [[ -n $LINUX_SUDO ]]; then
+    sudo apt-get install silversearcher-ag
+  else
+    cd ~
+    mkdir -p usr
+    git clone git@github.com:ggreer/the_silver_searcher.git
+    cd the_silver_searcher
+    ./build.sh --prefix=$ABSOLUTE_HOME/usr
+    make install
+    cd ~
+    rm -rf the_silver_searcher
+  fi 
+fi
+
 echo "Installing Vundle, and installing bundles that are described in .vimrc."
 git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
