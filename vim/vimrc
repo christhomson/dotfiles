@@ -4,6 +4,8 @@ if $SHELL =~ 'bin/fish'
   set shell=/bin/bash
 endif
 
+let mapleader = ","
+
 " VUNDLE initialization
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -15,11 +17,17 @@ Bundle 'Raimondi/delimitMate'
 
 " Git integration.
 Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+nnoremap <leader>gc :w \| Gwrite \| Gcommit<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
 
 " Fuzzy file matcher.
 " Looks to ancestor directories to find the source control root.
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'r'
+nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>t :CtrlP<CR>
 
 " Autocompletion.
 Bundle 'Shougo/neocomplcache.vim'
@@ -35,13 +43,24 @@ Bundle 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 
 " Find in project.
-Bundle 'mileszs/ack.vim'
-let g:ackprg="ag --nogroup --nocolor --column"
-nnoremap <C-f> :Ack! <C-r><C-w><CR>
+Bundle 'rking/ag.vim'
+nnoremap <C-f> :Ag 
+nnoremap <leader>f :Ag 
+
+" Ruby stuff.
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-rails'
+
+Bundle 'majutsushi/tagbar'
+nnoremap <leader>b :TagbarOpenAutoClose<CR>
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'mustache/vim-mustache-handlebars'
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -72,7 +91,6 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set noswapfile                    " I like to live dangerously.
-set spell                         " Spell check.
 
 set laststatus=2                  " Show the status line all the time
 
@@ -102,8 +120,12 @@ set wildignore=*.o,*.obj,*~,*sass-cache*,*DS_Store*,log/**,tmp/**,*.png,*.jpg,*.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 autocmd BufWritePost ~/.config/vimrc source ~/.vimrc
 
+" Overrides for specific filetypes.
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType gitcommit setlocal spell textwidth=72
+autocmd FileType tex setlocal spell
+autocmd FileType mkd setlocal spell
+
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
