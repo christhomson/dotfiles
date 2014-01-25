@@ -1,8 +1,8 @@
 set nocompatible                  " Must come first because it changes other options.
 
-
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
+if $SHELL =~ 'bin/fish'
+  set shell=/bin/bash
+endif
 
 " VUNDLE initialization
 set rtp+=~/.vim/bundle/vundle/
@@ -10,17 +10,10 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme = 'default'
-
-Bundle 'tpope/vim-fugitive'
 Bundle 'Raimondi/delimitMate'
-Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-fugitive'
 Bundle 'kchmck/vim-coffee-script'
-
-runtime macros/matchit.vim        " Load the matchit plugin.
-
+filetype plugin indent on
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
@@ -55,28 +48,14 @@ set spell                         " Spell check.
 set laststatus=2                  " Show the status line all the time
 
 set expandtab                     " Use spaces for tabs.
-set tabstop=2                     " 2 spaces is a tab.
+set shiftwidth=2
+set softtabstop=2                 " 2 spaces is a tab.
 colorscheme slate 
 
 set cursorline
 highlight CursorLine cterm=none ctermbg=0  
 
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-
-" Uncomment to use Jamis Buck's file opening plugin
-map <leader>t :FuzzyFinderTextMate<Enter>
-
 let &t_Co=256
-
 
 " Makes Vim recognize empty .tex files properly as tex files instead of
 " plaintex files.
@@ -87,3 +66,6 @@ let g:Imap_UsePlaceHolders = 0 " disable <++> markers
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType gitcommit setlocal spell textwidth=72
+
+syntax enable                     " Turn on syntax highlighting.          
+filetype plugin indent on         " Turn on file type detection.
