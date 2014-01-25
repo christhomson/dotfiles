@@ -52,8 +52,14 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rails'
 
+" Tagbar uses ctags.
 Bundle 'majutsushi/tagbar'
 nnoremap <leader>b :TagbarOpenAutoClose<CR>
+
+" Write boilerplate HTML inspired by CSS selectors
+Bundle 'mattn/emmet-vim'
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<C-e>' " <C-e>,
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
@@ -99,6 +105,8 @@ set shiftwidth=2
 set softtabstop=2                 " 2 spaces is a tab.
 colorscheme slate
 
+set updatetime=750
+
 set cursorline
 highlight CursorLine cterm=none ctermbg=0
 
@@ -125,6 +133,8 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType gitcommit setlocal spell textwidth=72
 autocmd FileType tex setlocal spell
 autocmd FileType mkd setlocal spell
+autocmd FileType html,css,scss EmmetInstall
+autocmd FileType vim let b:loaded_delimitMate=0
 
 
 syntax enable                     " Turn on syntax highlighting.

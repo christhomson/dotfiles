@@ -12,6 +12,7 @@ alias gs='git status'
 alias gst='git stash'
 alias gsa='git stash apply'
 alias gd='git diff'
+alias vi='vim'
 
 # path
 set PATH ~/bin $PATH
