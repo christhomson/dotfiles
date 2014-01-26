@@ -18,9 +18,11 @@ Bundle 'Raimondi/delimitMate'
 " Git integration.
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'gregsexton/gitv'
 nnoremap <leader>gc :w \| Gwrite \| Gcommit<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gh :Gitv<CR>
 
 " Fuzzy file matcher.
 " Looks to ancestor directories to find the source control root.
@@ -40,7 +42,7 @@ Bundle 'scrooloose/syntastic'
 " You may need to install the patched font from
 " https://github.com/Lokaltog/powerline-fonts
 Bundle 'bling/vim-airline'
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Find in project.
 Bundle 'rking/ag.vim'
@@ -61,6 +63,12 @@ Bundle 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-e>' " <C-e>,
 
+" Asynchronous tests, etc.
+Bundle 'tpope/vim-dispatch'
+
+Bundle 'chriskempson/vim-tomorrow-theme'
+colorscheme Tomorrow-Night-Eighties
+
 " Language support.
 Bundle 'plasticboy/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
@@ -70,47 +78,42 @@ Bundle 'mustache/vim-mustache-handlebars'
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
-
 set backspace=indent,eol,start    " Intuitive backspacing.
-
 set hidden                        " Handle multiple buffers better.
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
-
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
-
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
-
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
-
 set wrap                          " Turn on line wrapping.
-set scrolloff=9999                " Cursor stays at middle of screen.
-
+set linebreak
+set scrolloff=12
 set notitle                       " Set the terminal's title
-
 set visualbell                    " No beeping.
-
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 set noswapfile                    " I like to live dangerously.
-
 set laststatus=2                  " Show the status line all the time
-
 set expandtab                     " Use spaces for tabs.
 set shiftwidth=2
 set softtabstop=2                 " 2 spaces is a tab.
-colorscheme slate
-
 set updatetime=750
-
+set autoread
 set cursorline
+
 highlight CursorLine cterm=none ctermbg=0
 
 let &t_Co=256
+
+" Fix typos.
+command W w
+command Q q
+command Wq wq
+command WQ wq
 
 " Makes Vim recognize empty .tex files properly as tex files instead of
 " plaintex files.
