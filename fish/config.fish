@@ -16,6 +16,7 @@ alias vi='vim'
 
 # path
 set PATH ~/bin $PATH
+set PATH /usr/local/bin $PATH
 
 # rbenv
 if test -d $HOME/.rbenv
