@@ -79,6 +79,7 @@ echo "Linking dotfiles."
 ln -s ~/.config/git/config ~/.gitconfig
 ln -s ~/.config/ssh/config ~/.ssh/config
 ln -s ~/.config/vim/vimrc ~/.vimrc
+ln -s ~/.config/vim/gvimrc ~/.gvimrc
 
 if [[ -n $MAC_OS_X ]]; then
   mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User

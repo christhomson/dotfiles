@@ -109,12 +109,6 @@ highlight CursorLine cterm=none ctermbg=0
 
 let &t_Co=256
 
-" Fix typos.
-command W w
-command Q q
-command Wq wq
-command WQ wq
-
 " Makes Vim recognize empty .tex files properly as tex files instead of
 " plaintex files.
 let g:tex_flavor='latex'
@@ -138,7 +132,6 @@ autocmd FileType tex setlocal spell
 autocmd FileType mkd setlocal spell
 autocmd FileType html,css,scss EmmetInstall
 autocmd FileType vim let b:loaded_delimitMate=0
-
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
