@@ -16,6 +16,11 @@ Bundle 'gmarik/vundle'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-endwise'
 
+Bundle 'bkad/CamelCaseMotion'
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
+
 " Git integration.
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
