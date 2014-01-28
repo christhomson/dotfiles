@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 
 " Automatically close quotes, brackets, etc.
 Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-endwise'
 
 " Git integration.
 Bundle 'tpope/vim-fugitive'
@@ -45,9 +46,9 @@ Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 " Find in project.
-Bundle 'rking/ag.vim'
-nnoremap <C-f> :Ag 
-nnoremap <leader>f :Ag 
+Bundle 'mileszs/ack.vim'
+nnoremap <C-f> :Ack 
+nnoremap <leader>f :Ack 
 
 " Ruby stuff.
 Bundle 'tpope/vim-bundler'
