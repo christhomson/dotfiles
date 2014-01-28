@@ -121,6 +121,8 @@ cmap w!! %!sudo tee > /dev/null %   " Force save, if you forgot to sudo when nee
 " Ignore patterns for autocompletion.
 set wildignore=*.o,*.obj,*~,*sass-cache*,*DS_Store*,log/**,tmp/**,*.png,*.jpg,*.gif,*node_modules*
 
+nnoremap <silent><Tab> :bn<CR>
+
 " Automatically reload changes you make to .vimrc.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 autocmd BufWritePost ~/.config/vimrc source ~/.vimrc
