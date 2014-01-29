@@ -158,5 +158,4 @@ while true; do
   esac
 done
 
-source ~/.zshrc
-echo "All done!"
+zsh
