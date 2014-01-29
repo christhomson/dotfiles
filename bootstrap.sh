@@ -73,7 +73,7 @@ else
 fi
 
 echo "Cloning dotfiles into ~/.config."
-git clone git@github.com:christhomson/dotfiles ~/.config
+git clone --recursive git@github.com:christhomson/dotfiles ~/.config
 
 echo "Linking dotfiles."
 ln -s ~/.config/git/config ~/.gitconfig
