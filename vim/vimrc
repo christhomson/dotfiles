@@ -60,6 +60,9 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rails'
 
+" Easily rename files.
+Bundle 'vim-scripts/Rename2'
+
 " Tagbar uses ctags.
 Bundle 'majutsushi/tagbar'
 nnoremap <leader>b :TagbarOpenAutoClose<CR>
@@ -77,7 +80,10 @@ colorscheme Tomorrow-Night-Eighties
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
+
 Bundle 'kchmck/vim-coffee-script'
+au BufNewFile,BufRead *.coffee set filetype=coffee
+
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'mustache/vim-mustache-handlebars'
