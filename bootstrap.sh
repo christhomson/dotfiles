@@ -119,22 +119,7 @@ while true; do
   esac
 done
 
-while true; do
-  read -p "Do you want zsh? " zsh_yn
-  case $zsh_yn in
-    [Yy]* )
-      echo "Installing oh-my-zsh."
-      curl -sSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
-      rm -f ~/.zshrc
-      rm -rf ~/.oh-my-zsh/custom
-      ln -s ~/.config/zsh/custom ~/.oh-my-zsh/custom
-      ln -s ~/.config/zsh/zshrc ~/.zshrc
-      ln -s ~/.config/zsh/chris-arrow.zsh-theme ~/.oh-my-zsh/themes/chris-arrow.zsh-theme
-      break;;
-    [Nn]* ) break;;
-    * ) echo "Please answer yes or no.";;
-  esac
-done
+ln -s ~/.config/zsh/zshrc ~/.zshrc
 
 if ! [[ `ag --version >/dev/null 2>&1` ]]; then
   echo "ag is already installed."
@@ -173,4 +158,5 @@ while true; do
   esac
 done
 
+source ~/.zshrc
 echo "All done!"
