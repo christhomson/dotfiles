@@ -28,3 +28,7 @@ export COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/aliases.zsh
 source $ZSH/path.zsh
+
+if ! [ `rbenv --version >/dev/null 2>&1` ]; then
+  source $ZSH/rbenv.zsh
+fi
