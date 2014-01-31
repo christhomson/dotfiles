@@ -3,7 +3,7 @@ export PATH="/sbin:$PATH"
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="~/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 if [[ LOCATION == "home" ]]; then
   export GOPATH="$HOME/dev/go"
