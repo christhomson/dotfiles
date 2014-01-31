@@ -139,6 +139,7 @@ set wildignore=*.o,*.obj,*~,*sass-cache*,*DS_Store*,*/log/**,*/tmp/**,*.png,*.jp
 nnoremap <silent><Tab> :bn<CR>
 nnoremap <silent><S-Tab> :bp<CR>
 nnoremap <silent><Leader>d :bd<CR>
+nnoremap <silent>U :redo<CR>
 
 " Automatically reload changes you make to .vimrc.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
