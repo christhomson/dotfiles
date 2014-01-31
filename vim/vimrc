@@ -16,6 +16,9 @@ Bundle 'gmarik/vundle'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-endwise'
 
+" Badass HTML editing with a CSS selector-like syntax.
+Bundle 'tristen/vim-sparkup'
+
 Bundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
@@ -51,14 +54,17 @@ Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 " Find in project.
-Bundle 'rking/ag.vim'
-nnoremap <C-f> :Ag 
-nnoremap <leader>f :Ag 
+Bundle 'mileszs/ack.vim'
+nnoremap <C-f> :Ack 
+nnoremap <leader>f :Ack 
 
 " Ruby stuff.
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rails'
+
+" Easily rename files.
+Bundle 'vim-scripts/Rename2'
 
 " Tagbar uses ctags.
 Bundle 'majutsushi/tagbar'
@@ -77,7 +83,10 @@ colorscheme Tomorrow-Night-Eighties
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
+
 Bundle 'kchmck/vim-coffee-script'
+au BufNewFile,BufRead *.coffee set filetype=coffee
+
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'mustache/vim-mustache-handlebars'
@@ -125,9 +134,11 @@ let g:Imap_UsePlaceHolders = 0 " disable <++> markers
 cmap w!! %!sudo tee > /dev/null %   " Force save, if you forgot to sudo when needed
 
 " Ignore patterns for autocompletion.
-set wildignore=*.o,*.obj,*~,*sass-cache*,*DS_Store*,log/**,tmp/**,*.png,*.jpg,*.gif,*node_modules*
+set wildignore=*.o,*.obj,*~,*sass-cache*,*DS_Store*,*/log/**,*/tmp/**,*.png,*.jpg,*.gif,*node_modules*
 
 nnoremap <silent><Tab> :bn<CR>
+nnoremap <silent><S-Tab> :bp<CR>
+nnoremap <silent><Leader>d :bd<CR>
 
 " Automatically reload changes you make to .vimrc.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
