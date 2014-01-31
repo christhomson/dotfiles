@@ -14,6 +14,15 @@ Bundle 'gmarik/vundle'
 
 " Automatically close quotes, brackets, etc.
 Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-endwise'
+
+" Badass HTML editing with a CSS selector-like syntax.
+Bundle 'tristen/vim-sparkup'
+
+Bundle 'bkad/CamelCaseMotion'
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
 
 " Badass HTML editing with a CSS selector-like syntax.
 Bundle 'tristen/vim-sparkup'
@@ -138,6 +147,7 @@ set wildignore=*.o,*.obj,*~,*sass-cache*,*DS_Store*,*/log/**,*/tmp/**,*.png,*.jp
 nnoremap <silent><Tab> :bn<CR>
 nnoremap <silent><S-Tab> :bp<CR>
 nnoremap <silent><Leader>d :bd<CR>
+nnoremap <silent>U :redo<CR>
 
 " Automatically reload changes you make to .vimrc.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
