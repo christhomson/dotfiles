@@ -81,11 +81,6 @@ ln -s ~/.config/ssh/config ~/.ssh/config
 ln -s ~/.config/vim/vimrc ~/.vimrc
 ln -s ~/.config/vim/gvimrc ~/.gvimrc
 
-if [[ -n $MAC_OS_X ]]; then
-  mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-  ln -sf ~/.config/sublime/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-fi
-
 echo "Configuring Git for $github_username ($name: $email)"
 git config --global user.name "$name"
 git config --global user.email "$email"
