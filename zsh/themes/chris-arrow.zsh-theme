@@ -12,11 +12,11 @@ if [[ $LOCATION == "school" ]]; then
   function git_prompt_info() { }
 fi
 
-if [[ -z $timer_show ]]; then
-  timer_show=0
+if [[ -z $elapsed_time ]]; then
+  timer_view=""
 fi
 
-RPROMPT='%{$fg[cyan]%}${timer_show}s %{$fg[yellow]%}%p$USER@$(git_prompt_info)'
+RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@$(git_prompt_info)'
 
 # See http://geoff.greer.fm/lscolors/
 export LSCOLORS="exfxcxdxbxbxbxbxbxbxbx"
@@ -28,7 +28,12 @@ function preexec() {
 
 function precmd() {
   if [ $timer ]; then
-    timer_show=$(($SECONDS - $timer))
+    elapsed_time=$(($SECONDS - $timer))
+    if [[ $elapsed_time -le 1 ]]; then
+      timer_view=""
+    else
+      timer_view="${elapsed_time}s"
+    fi
     unset timer
   fi
 }
