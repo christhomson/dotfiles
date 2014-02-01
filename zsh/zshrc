@@ -10,9 +10,7 @@ if [ "$OSTYPE"="darwin11.0" ]; then
 fi
 
 antigen-bundle zsh-users/zsh-syntax-highlighting
-
 antigen-theme $ZSH/themes/chris-arrow.zsh-theme
-
 antigen-apply
 
 export LOCATION="anywhere"
@@ -26,6 +24,7 @@ export UPDATE_ZSH_DAYS=45
 
 export COMPLETION_WAITING_DOTS="true"
 
+source $ZSH/machine.zsh
 source $ZSH/aliases.zsh
 source $ZSH/path.zsh
 

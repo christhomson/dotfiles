@@ -120,6 +120,8 @@ while true; do
 done
 
 ln -s ~/.config/zsh/zshrc ~/.zshrc
+read -p "Please enter a name for this machine: " machine_name
+echo "export MACHINE_NAME=\"$machine_name\"" > ~/.config/zsh/machine.zsh
 
 if ! [[ `ag --version >/dev/null 2>&1` ]]; then
   echo "ag is already installed."
