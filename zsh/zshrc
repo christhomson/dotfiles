@@ -12,7 +12,8 @@ antigen-bundle rails
 antigen-bundle vagrant
 
 if [ `uname`="Darwin" ]; then
-  antigen-bundle osx sublime
+  antigen-bundle osx
+  antigen-bundle sublime
 fi
 
 antigen-bundle zsh-users/zsh-syntax-highlighting
