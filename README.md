@@ -12,6 +12,7 @@ Currently, these are the dependencies that will be installed:
 * [Git](http://git-scm.com)
 * [Fish shell](http://fishshell.com) [optional]
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (currently this assumes zsh itself is already installed) [optional]
+* [antigen](https://github.com/zsh-users/antigen)
 * [Ag](https://github.com/ggreer/the_silver_searcher)
 * [Vundle](https://github.com/gmarik/vundle), and [a bunch of Vim bundles](https://github.com/christhomson/dotfiles/blob/master/vim/vimrc)
 * [rbenv](https://github.com/sstephenson/rbenv) [optional]
