@@ -8,6 +8,7 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	s = status -sb
 	st = status -sb
+	cp = cherry-pick
 [push]
 	default = matching
 [difftool]
