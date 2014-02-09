@@ -19,11 +19,6 @@ Bundle 'tpope/vim-endwise'
 " Badass HTML editing with a CSS selector-like syntax.
 Bundle 'tristen/vim-sparkup'
 
-Bundle 'bkad/CamelCaseMotion'
-map <S-W> <Plug>CamelCaseMotion_w
-map <S-B> <Plug>CamelCaseMotion_b
-map <S-E> <Plug>CamelCaseMotion_e
-
 " Badass HTML editing with a CSS selector-like syntax.
 Bundle 'tristen/vim-sparkup'
 
