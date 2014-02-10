@@ -15,12 +15,7 @@ Bundle 'gmarik/vundle'
 " Automatically close quotes, brackets, etc.
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-endwise'
-
-" Badass HTML editing with a CSS selector-like syntax.
-Bundle 'tristen/vim-sparkup'
-
-" Badass HTML editing with a CSS selector-like syntax.
-Bundle 'tristen/vim-sparkup'
+Bundle 'docunext/closetag.vim'
 
 Bundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
@@ -155,6 +150,8 @@ autocmd FileType tex setlocal spell
 autocmd FileType mkd setlocal spell
 autocmd FileType html,css,scss EmmetInstall
 autocmd FileType vim let b:loaded_delimitMate=0
+autocmd FileType html,eruby let b:closetag_html_style=1
+
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
