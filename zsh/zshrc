@@ -1,4 +1,5 @@
 ZSH=$HOME/.config/zsh
+export EDITOR=vi
 
 source $ZSH/antigen/antigen.zsh
 
