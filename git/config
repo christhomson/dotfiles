@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	excludesfile = ~/.dotfiles/git/ignore
+	excludesfile = ~/.config/git/ignore
 	quotepath = false
 	autocrlf = input
 [alias]
