@@ -26,7 +26,8 @@ if [[ `hostname` =~ linux0[0-9][0-9]\.student\.cs ]]; then
 fi
 
 # Don't annoy me as much as you'd like to.
-export UPDATE_ZSH_DAYS=45 
+export UPDATE_ZSH_DAYS=30 
+export DISABLE_UPDATE_PROMPT=true
 
 export COMPLETION_WAITING_DOTS="true"
 
@@ -37,4 +38,3 @@ source $ZSH/path.zsh
 if ! [ `rbenv --version >/dev/null 2>&1` ]; then
   source $ZSH/rbenv.zsh
 fi
-
