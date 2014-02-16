@@ -85,10 +85,10 @@ let g:user_emmet_leader_key='<C-e>' " <C-e>,
 Bundle 'tpope/vim-dispatch'
 
 Bundle 'tomtom/tcomment_vim'
-map <leader>gc :TCommentRight<CR>
+map <leader>gc :TComment<CR>
 
 Bundle 'chriskempson/vim-tomorrow-theme'
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
