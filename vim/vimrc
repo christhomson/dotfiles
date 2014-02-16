@@ -26,10 +26,9 @@ map <S-E> <Plug>CamelCaseMotion_e
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
-nnoremap <leader>gc :w \| Gwrite \| Gcommit<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gh :Gitv<CR>
+
 
 " Fuzzy file matcher.
 " Looks to ancestor directories to find the source control root.
@@ -52,9 +51,18 @@ Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 " Find in project.
-Bundle 'rking/ag.vim'
-nnoremap <C-f> :Ag 
-nnoremap <leader>f :Ag 
+if executable('ag')
+  Bundle 'rking/ag.vim'
+  nnoremap <C-f> :Ag 
+  nnoremap <leader>f :Ag 
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+elseif executable('ack')
+  Bundle 'mileszs/ack.vim'
+  nnoremap <C-f> :Ack
+  nnoremap <leader>f :Ack
+endif
 
 " Ruby stuff.
 Bundle 'tpope/vim-bundler'
@@ -75,6 +83,9 @@ let g:user_emmet_leader_key='<C-e>' " <C-e>,
 
 " Asynchronous tests, etc.
 Bundle 'tpope/vim-dispatch'
+
+Bundle 'tomtom/tcomment_vim'
+map <leader>gc :TCommentRight<CR>
 
 Bundle 'chriskempson/vim-tomorrow-theme'
 colorscheme Tomorrow-Night-Eighties
@@ -117,6 +128,7 @@ set softtabstop=2                 " 2 spaces is a tab.
 set updatetime=750
 set autoread
 set cursorline
+set list listchars=tab:»·,trail:· " Show extra whitespace.
 
 highlight CursorLine cterm=none ctermbg=0
 
@@ -151,7 +163,9 @@ autocmd FileType mkd setlocal spell
 autocmd FileType html,css,scss EmmetInstall
 autocmd FileType vim let b:loaded_delimitMate=0
 autocmd FileType html,eruby let b:closetag_html_style=1
-
+autocmd FileType text,mkd setlocal textwidth=80
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
+
+
