@@ -35,6 +35,6 @@ source $ZSH/machine.zsh
 source $ZSH/aliases.zsh
 source $ZSH/path.zsh
 
-if ! [ `rbenv --version >/dev/null 2>&1` ]; then
+if which rbenv &>/dev/null ; then
   source $ZSH/rbenv.zsh
 fi
