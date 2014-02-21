@@ -7,16 +7,15 @@ ZSH_THEME_GIT_PROMPT_DIRTY="⚑"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_UNMERGED="▾"
 
-if [[ $LOCATION == "school" ]]; then
-  # Git is slow on the UW CS servers.
-  function git_prompt_info() { }
-fi
-
 if [[ -z $elapsed_time ]]; then
   timer_view=""
 fi
 
-RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@$(git_prompt_info)'
+RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@'
+
+if [[ $LOCATION != "school" ]]; then
+  RPROMPT="$RPROMPT:$(git_prompt_info)"
+fi
 
 # See http://geoff.greer.fm/lscolors/
 export LSCOLORS="exfxcxdxbxbxbxbxbxbxbx"

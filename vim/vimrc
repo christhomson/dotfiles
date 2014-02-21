@@ -34,7 +34,9 @@ map <S-E> <Plug>CamelCaseMotion_e
 
 " Git integration.
 Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+if $LOCATION != "school"
+  Bundle 'airblade/vim-gitgutter'
+endif
 Bundle 'gregsexton/gitv'
 nnoremap <leader>gc :w \| Gwrite \| Gcommit<CR>
 nnoremap <leader>gs :Gstatus<CR>
