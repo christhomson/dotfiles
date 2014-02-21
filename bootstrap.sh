@@ -28,6 +28,7 @@ read -p "What's your name? " name
 read -p "What's your email address? " email
 read -p "What's your GitHub username? " github_username
 
+echo "Generating SSH key (will confirm overwrite if you already have one)..."
 mkdir -p ~/.ssh
 ssh-keygen -t rsa -C "$email"
 cat ~/.ssh/id_rsa.pub
