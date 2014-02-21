@@ -13,8 +13,10 @@ fi
 
 RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@'
 
-if [[ $LOCATION != "school" ]]; then
-  RPROMPT="$RPROMPT$(git_prompt_info)"
+if [[ $LOCATION == "school" ]]; then
+  RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@'
+else
+  RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@$(git_prompt_info)'
 fi
 
 # See http://geoff.greer.fm/lscolors/
