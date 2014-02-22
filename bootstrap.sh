@@ -43,11 +43,11 @@ fi
 echo "Press enter to continue once you've added your SSH key to your GitHub account."
 read
 
-if ! [[ `git --version >/dev/null 2>&1` ]]; then
+if ! [[ `which git &>/dev/null` ]]; then
   echo "Git is already installed. Awesome."
 else
   if [[ -n $MAC_OS_X ]]; then
-    if ! [[ `brew -v >/dev/null 2>&1` ]]; then
+    if ! [[ `which brew &>/dev/null` ]]; then
       echo "Homebrew is already installed. Let's move on!"
     else
       echo "Installing Homebrew."
@@ -119,7 +119,7 @@ ln -s ~/.config/zsh/zshrc ~/.zshrc
 read -p "Please enter a name for this machine: " machine_name
 echo "export MACHINE_NAME=\"$machine_name\"" > ~/.config/zsh/machine.zsh
 
-if ! [[ `ag --version >/dev/null 2>&1` ]]; then
+if ! [[ `which ag &>/dev/null` ]]; then
   echo "ag is already installed."
 else
   echo "Installing ag."
