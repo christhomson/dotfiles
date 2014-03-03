@@ -1,5 +1,5 @@
 ZSH=$HOME/.config/zsh
-export EDITOR=vi
+export EDITOR=vim
 
 source $ZSH/antigen/antigen.zsh
 
