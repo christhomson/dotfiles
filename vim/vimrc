@@ -94,6 +94,7 @@ colorscheme Tomorrow-Night
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
 
 Bundle 'kchmck/vim-coffee-script'
 au BufNewFile,BufRead *.coffee set filetype=coffee
@@ -131,6 +132,7 @@ set updatetime=750
 set autoread
 set cursorline
 set list listchars=tab:»·,trail:· " Show extra whitespace.
+set nofoldenable
 
 highlight CursorLine cterm=none ctermbg=0
 
