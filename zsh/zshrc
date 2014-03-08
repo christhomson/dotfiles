@@ -35,6 +35,10 @@ source $ZSH/machine.zsh
 source $ZSH/aliases.zsh
 source $ZSH/path.zsh
 
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+
 if which rbenv &>/dev/null ; then
   source $ZSH/rbenv.zsh
 fi
