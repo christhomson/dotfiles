@@ -1,4 +1,5 @@
 alias ..='cd ..'
+alias git='hub'
 alias b='bundle'
 alias be='bundle exec'
 alias bc='bundle exec rails console'

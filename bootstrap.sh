@@ -73,6 +73,17 @@ else
   fi
 fi
 
+if ! [[ `which git &>/dev/null` ]]; then
+  echo "hub is already installed. Sweet."
+else
+  echo "Installing hub from source."
+  git clone git@github.com:github/hub.git ~/hub
+  cd ~/hub
+  rake install prefix=$ABSOLUTE_HOME/usr
+  cd ~
+  rm -rf hub/
+fi
+
 echo "Cloning dotfiles into ~/.config."
 git clone --recursive git@github.com:christhomson/dotfiles ~/.config
 
