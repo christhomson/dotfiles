@@ -10,3 +10,7 @@ alias gs='git st'
 alias gst='git st'
 alias gd='git diff'
 alias vi='vim'
+
+# Don't log these in my history.
+alias ls=' ls'
+alias cd=' cd'
