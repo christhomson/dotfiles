@@ -12,7 +12,7 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 [push]
-	default = matching
+	default = upstream
 [difftool]
 [diff]
 	algorithm = patience
