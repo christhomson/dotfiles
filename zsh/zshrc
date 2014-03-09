@@ -39,6 +39,9 @@ bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
+bindkey "^R" history-incremental-pattern-search-backward
+bindkey "^S" history-incremental-pattern-search-forward
+
 setopt HIST_IGNORE_SPACE
 
 if which rbenv &>/dev/null ; then
