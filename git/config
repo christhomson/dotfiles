@@ -10,6 +10,7 @@
 	st = status -sb
 	cp = cherry-pick
 	unstage = reset HEAD --
+	last = log -1 HEAD
 [push]
 	default = matching
 [difftool]
