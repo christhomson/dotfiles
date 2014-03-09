@@ -44,6 +44,13 @@ bindkey "^S" history-incremental-pattern-search-forward
 
 setopt HIST_IGNORE_SPACE
 
+foreground-vi() {
+  fg %vi
+}
+
+zle -N foreground-vi
+bindkey '^Z' foreground-vi
+
 if which rbenv &>/dev/null ; then
   source $ZSH/rbenv.zsh
 fi
