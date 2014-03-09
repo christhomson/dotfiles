@@ -30,6 +30,9 @@ Host digitalocean
   HostName deploy.cthomson.ca
   User deploy
 
+Host github.com
+  User git
+
 Host *
   ForwardAgent no
   ServerAliveInterval 60
