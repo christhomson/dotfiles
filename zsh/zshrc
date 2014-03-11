@@ -35,12 +35,14 @@ source $ZSH/machine.zsh
 source $ZSH/aliases.zsh
 source $ZSH/path.zsh
 
-bindkey -e
+bindkey -v
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
+
+export KEYTIMEOUT=1
 
 setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_DUPS
