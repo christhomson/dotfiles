@@ -73,6 +73,8 @@ else
   fi
 fi
 
+sudo gem install git-smart
+
 if ! [[ `which git &>/dev/null` ]]; then
   echo "hub is already installed. Sweet."
 else
