@@ -22,6 +22,6 @@
 [help]
 	autocorrect = 1
 [color]
-	ui = always
+	ui = true
 [log]
 	abbrevCommit = true
