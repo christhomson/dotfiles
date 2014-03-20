@@ -2,3 +2,4 @@ fish/fish_history
 fish/fishd.*
 zsh/machine.zsh
 hub
+zsh/cache/
