@@ -94,6 +94,7 @@ ln -s ~/.config/git/config ~/.gitconfig
 ln -s ~/.config/ssh/config ~/.ssh/config
 ln -s ~/.config/vim/vimrc ~/.vimrc
 ln -s ~/.config/vim/gvimrc ~/.gvimrc
+ln -s ~/.config/ruby/pryrc ~/.pryrc
 
 echo "Configuring Git for $github_username ($name: $email)"
 git config --global user.name "$name"
