@@ -73,7 +73,7 @@ else
   fi
 fi
 
-sudo gem install git-smart
+sudo gem install awesome_print git-smart what_methods
 
 if ! [[ `which git &>/dev/null` ]]; then
   echo "hub is already installed. Sweet."
@@ -95,6 +95,7 @@ ln -s ~/.config/ssh/config ~/.ssh/config
 ln -s ~/.config/vim/vimrc ~/.vimrc
 ln -s ~/.config/vim/gvimrc ~/.gvimrc
 ln -s ~/.config/ruby/pryrc ~/.pryrc
+ln -s ~/.config/ruby/irbrc ~/.irbrc
 
 echo "Configuring Git for $github_username ($name: $email)"
 git config --global user.name "$name"
