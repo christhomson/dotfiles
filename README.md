@@ -10,7 +10,7 @@ This will clone this repo into `~/.config`, install any dependencies that aren't
 Currently, these are the dependencies that will be installed:
 * [Homebrew](https://github.com/mxcl/homebrew) (if installing onto Mac OS X)
 * [Git](http://git-scm.com)
-* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (currently this assumes zsh itself is already installed) [optional]
+* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (currently this assumes zsh itself is already installed)
 * [antigen](https://github.com/zsh-users/antigen)
 * [Ag](https://github.com/ggreer/the_silver_searcher)
 * [Vundle](https://github.com/gmarik/vundle), and [a bunch of Vim bundles](https://github.com/christhomson/dotfiles/blob/master/vim/vimrc)

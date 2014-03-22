@@ -2,7 +2,7 @@
 set -x
 
 ssh_configuration() {
-  if [[ -f "~/.ssh/id_rsa" ]]; then
+  if [[ ! -f ~/.ssh/id_rsa ]]; then
     read -p "An email address is needed for your SSH key. What is it? " email
     ssh-keygen -t rsa -C "$email"
     cat ~/.ssh/id_rsa.pub
@@ -129,12 +129,14 @@ vundle_git_install() {
 }
 
 rbenv_git_install() {
-  if [[ `which rbenv &>/dev/null` ]]; then
-    git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
-  fi
+  if [[ -z "$SKIP_RBENV" ]]; then
+    if [[ `which rbenv &>/dev/null` ]]; then
+      git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
+    fi
 
-  if [[ -d "~/.rbenv/plugins/rbenv-gem-rehash" ]]; then
-    git clone git@github.com:sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+    if [[ -d "~/.rbenv/plugins/rbenv-gem-rehash" ]]; then
+      git clone git@github.com:sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+    fi
   fi
 }
 
@@ -195,6 +197,10 @@ provision_linux() {
   rbenv_git_install
   gems_install
 }
+
+if [[ -f ~/.config/zsh/machine.zsh ]]; then
+  source ~/.config/zsh/machine.zsh
+fi
 
 if [[ `uname` == "Darwin" ]]; then
   provision_mac_os_x
