@@ -60,7 +60,7 @@ git_source_install() {
 
 clone_dotfiles_repo() {
   if [[ -d "~/.config" ]]; then
-    git clone git@github.com:christhomson/dotfiles.git ~/.config
+    git clone --recursive git@github.com:christhomson/dotfiles.git ~/.config
   fi
 }
 
