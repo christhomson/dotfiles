@@ -9,9 +9,17 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="▾"
 
 git_prompt_info() {
   if [[ "$(git config --get oh-my-zsh.hide-status)" != "1" ]]; then
-    ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+    branch=$(command git symbolic-ref HEAD 2>/dev/null)
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${branch#refs/heads/}@${ref}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  fi
+}
+
+ruby_version() {
+  if [ ! -z $RUBY_VERSION ]; then
+    echo "$RUBY_VERSION"
+  else
+    echo "`rbenv version-name`"
   fi
 }
 
@@ -19,12 +27,10 @@ if [[ -z $elapsed_time ]]; then
   timer_view=""
 fi
 
-RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@'
-
 if [[ $LOCATION == "school" ]]; then
-  RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@'
+  RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER'
 else
-  RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER@$(git_prompt_info)'
+  RPROMPT='%{$fg[cyan]%}${timer_view}  $(ruby_version)  %{$fg[yellow]%}%p$USER  $(git_prompt_info)'
 fi
 
 # See http://geoff.greer.fm/lscolors/
