@@ -26,3 +26,5 @@
 	ui = true
 [log]
 	abbrevCommit = true
+[init]
+	templatedir = ~/.config/git/templates

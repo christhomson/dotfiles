@@ -1,0 +1,12 @@
+#!/bin/bash
+
+conflicts=`git conflicts`
+
+if ! [ -z "$conflicts" ]; then
+  echo "It looks like you still have conflicted files in your index:"
+  echo "$conflicts"
+  echo "If you're sure you'd like to continue anyway, use git commit --no-verify."
+  exit 1
+fi
+
+exit 0
