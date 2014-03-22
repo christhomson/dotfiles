@@ -81,7 +81,7 @@ git_configuration() {
   fi
 
   if [ -z "$email" ]; then
-    read -p "Git needs your public email address. What is it? " name
+    read -p "Git needs your public email address. What is it? " email
     git config --global user.email "$email"
   fi
 }
