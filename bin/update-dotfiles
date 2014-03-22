@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+pushd ~/.config
+git stash -u
+git pull
+./provision.sh
+git stash pop
+popd
+
+echo "Dotfiles updated and reprovisioned."
