@@ -1,4 +1,12 @@
-PROMPT='%{$fg[cyan]%}$MACHINE_NAME%{$reset_color%} %{$fg[magenta]%}→%{$reset_color%} %{$fg[yellow]%}%c: %{$reset_color%}'
+prompt_color() {
+  if [[ $? -eq 0 ]]; then
+    print "green"
+  else
+    print "red"
+  fi
+}
+
+PROMPT='%{$fg[cyan]%}$MACHINE_NAME%{$reset_color%} %{$fg[magenta]%}→%{$reset_color%} %{$fg[yellow]%}%c%{$fg[$(prompt_color)]%}:%{$reset_color%} '
 
 # Git
 ZSH_THEME_GIT_PROMPT_PREFIX=""
@@ -11,7 +19,7 @@ git_prompt_info() {
   if [[ "$(git config --get oh-my-zsh.hide-status)" != "1" ]]; then
     branch=$(command git symbolic-ref HEAD 2>/dev/null)
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${branch#refs/heads/}@${ref}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref} %{$fg[cyan]%}${branch#refs/heads/}$(parse_git_dirty)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
 }
 
@@ -28,9 +36,9 @@ if [[ -z $elapsed_time ]]; then
 fi
 
 if [[ $LOCATION == "school" ]]; then
-  RPROMPT='%{$fg[cyan]%}${timer_view} %{$fg[yellow]%}%p$USER'
+  RPROMPT='%{$fg[blue]%}${timer_view} $USER%{$reset_color%}'
 else
-  RPROMPT='%{$fg[cyan]%}${timer_view}  $(ruby_version)  %{$fg[yellow]%}%p$USER  $(git_prompt_info)'
+  RPROMPT='%{$fg[blue]%}${timer_view} $USER $(ruby_version) $(git_prompt_info)%{$reset_color%}'
 fi
 
 # See http://geoff.greer.fm/lscolors/
