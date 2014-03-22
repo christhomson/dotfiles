@@ -14,6 +14,7 @@
 	stash-unapply = !git stash show -p | git apply -R
 	blame-anywhere = blame -C
 	down = smart-pull
+	conflicts = ! egrep -lr '(<|>|=){7}' .
 [push]
 	default = upstream
 [difftool]
