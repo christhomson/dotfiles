@@ -11,6 +11,7 @@ alias gs='git st'
 alias gst='git st'
 alias gd='git diff'
 alias vi='vim'
+alias gbrt='git branch-timeline'
 
 # Don't log these in my history.
 alias ls=' ls'
