@@ -21,7 +21,7 @@
 [diff]
 	algorithm = patience
 [help]
-	autocorrect = 1
+	autocorrect = 30
 [color]
 	ui = true
 [log]
