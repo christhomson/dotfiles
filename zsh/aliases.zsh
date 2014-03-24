@@ -13,5 +13,5 @@ alias vi='vim'
 alias gbrt='git branch-timeline'
 
 # Don't log these in my history.
-alias ls=' ls'
+alias ls=' ls --color'
 alias cd=' cd'
