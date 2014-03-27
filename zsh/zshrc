@@ -34,6 +34,7 @@ export COMPLETION_WAITING_DOTS="true"
 source $ZSH/machine.zsh
 source $ZSH/aliases.zsh
 source $ZSH/path.zsh
+source $ZSH/functions.zsh
 
 bindkey -v
 bindkey '^[[1;9C' forward-word
