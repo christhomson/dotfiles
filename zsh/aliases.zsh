@@ -5,6 +5,7 @@ alias be='bundle exec'
 alias bc='bundle exec rails console'
 alias bs='bundle exec rails server'
 alias bi='bundle install'
+alias bo='bundle open'
 alias bake='bundle exec rake'
 alias bails='bundle exec rails'
 
