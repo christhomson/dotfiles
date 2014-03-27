@@ -12,6 +12,7 @@ alias gs='git st'
 alias gst='git st'
 alias gd='git diff'
 alias gbrt='git branch-timeline'
+alias gap='git add -p'
 
 alias vi='vim'
 
