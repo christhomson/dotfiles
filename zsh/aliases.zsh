@@ -14,6 +14,7 @@ alias gst='git st'
 alias gd='git diff'
 alias gbrt='git branch-timeline'
 alias gap='git add -p'
+alias grc='git rebase --continue'
 
 alias vi='vim'
 
