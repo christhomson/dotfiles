@@ -30,3 +30,8 @@
 	abbrevCommit = true
 [init]
 	templatedir = ~/.config/git/templates
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	insteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+	pushInsteadOf = "https://github.com/"
