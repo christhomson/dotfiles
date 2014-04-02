@@ -29,6 +29,16 @@ alias nm='nodemon'
 # Pretty print JSON.
 alias ppj='python -mjson.tool'
 
+# Use OpenDNS to tell us our external IP.
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+# Merge PDF files.
+if [ $OSX ]; then
+  alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+fi
+
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
 # Don't log these in my history.
 alias ls=' ls -G'
 alias cd=' cd'

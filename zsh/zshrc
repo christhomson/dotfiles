@@ -11,6 +11,7 @@ antigen-bundle npm
 antigen-bundle vagrant
 
 if [ `uname`="Darwin" ]; then
+  export OSX=1
   antigen-bundle osx
   antigen-bundle sublime
 fi
