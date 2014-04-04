@@ -15,8 +15,9 @@
 	blame-anywhere = blame -C
 	down = smart-pull
 	conflicts = ! egrep -lr '(<|>){7}' .
-        rename = branch -m
-        recent = !git --no-pager lg -n 25
+	rename = branch -m
+	recent = !git --no-pager lg -n 25
+	unreachable-stashes = !git fsck --unreachable | grep commit | cut -d\\  -f3 | xargs git --no-pager lg --merges --no-walk --grep=WIP
 [push]
 	default = upstream
 [difftool]
