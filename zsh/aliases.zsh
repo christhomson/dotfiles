@@ -13,6 +13,7 @@ alias bt='bundle exec rake test'
 alias bails='bundle exec rails'
 alias ss='script/server'
 
+alias ga='git add'
 alias gs='git st'
 alias gst='git stash'
 alias gsa='git stash apply'
