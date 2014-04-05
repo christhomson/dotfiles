@@ -65,6 +65,5 @@ fi
 setopt nohistverify
 
 export TZ='America/New_York'
-export ZEUSSOCK=/tmp/zeus.sock
 
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
