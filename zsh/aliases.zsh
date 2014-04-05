@@ -29,6 +29,9 @@ alias v='vi .'
 
 alias nm='nodemon'
 
+alias reload='source ~/.zshrc'
+alias rl='source ~/.zshrc'
+
 # Pretty print JSON.
 alias ppj='python -mjson.tool'
 
