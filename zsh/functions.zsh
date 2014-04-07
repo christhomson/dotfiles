@@ -20,7 +20,7 @@ rake() {
 
 rails() {
   if [[ -S '.zeus.sock' && ($1 = 's' || $1 = 'server' || $1 = 'g' || $1 = 'generate' || $1 = 'd' || $1 = 'destroy' || $1 = 'c' || $1 = 'console' || $1 = 'r' || $1 = 'runner') ]]; then
-    zeus $zeus_cmd ${*:2}
+    zeus $1 ${*:2}
   elif [ -f 'Gemfile' ]; then
     bundle exec rails $1 ${*:2}
   else
