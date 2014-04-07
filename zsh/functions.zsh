@@ -10,11 +10,11 @@ common_commands() {
 # Override rake and rails methods to automatically use `zeus` or `bundle exec`.
 rake() {
   if [ -S '.zeus.sock' ]; then
-    zeus rake
+    zeus rake ${*:1}
   elif [ -f 'Gemfile' ]; then
-    bundle exec rake
+    bundle exec rake ${*:1}
   else
-    rake
+    rake ${*:1}
   fi
 }
 
