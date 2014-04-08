@@ -37,7 +37,6 @@ source $ZSH/aliases.zsh
 source $ZSH/path.zsh
 source $ZSH/functions.zsh
 
-bindkey -v
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
