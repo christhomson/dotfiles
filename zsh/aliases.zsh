@@ -27,6 +27,8 @@ alias grh='git reset --hard'
 alias vi='vim'
 alias v='vi .'
 
+alias gf='fg'
+
 alias nm='nodemon'
 
 alias reload='source ~/.zshrc'
