@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# pre-commit hook for conditionally changing your email address
+# depending on if the `origin` remote URL matches an expression.
+
+# For example, I use this to ensure I use my Shopify email address
+# for any remotes whose URL match [sS]hopify.
+
+# To setup, run:
+# git config --global alternate.expression '[oO]rganization'
+# git config --global alternate.email 'you@organization.com'
+
+# This hook will automatically be installed in any repository you
+# create or clone from now on. For any existing repositories, you
+# can run `git init` to install this hook, unless you already have
+# a different pre-commit hook installed.
+
+origin=`git config --get remote.origin.url`
+alternate_expression=`git config --get alternate.expression`
+alternate_email=`git config --get alternate.email`
+
+echo $origin
+echo $alternate_expression
+echo $alternate_email
+
+if [[ -n $origin && -n $alternate_expression && -n $alternate_email && $origin =~ $alternate_expression ]]; then
+  git config user.email "$alternate_email"
+else
+  git config --unset user.email
+fi
