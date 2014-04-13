@@ -19,10 +19,6 @@ origin=`git config --get remote.origin.url`
 alternate_expression=`git config --get alternate.expression`
 alternate_email=`git config --get alternate.email`
 
-echo $origin
-echo $alternate_expression
-echo $alternate_email
-
 if [[ -n $origin && -n $alternate_expression && -n $alternate_email && $origin =~ $alternate_expression ]]; then
   git config user.email "$alternate_email"
 else
