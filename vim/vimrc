@@ -54,7 +54,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Find in project.
 if executable('ag')
   Bundle 'rking/ag.vim'
-  nnoremap <C-f> :Ag 
+  nnoremap <C-a> :Ag 
   nnoremap <leader>f :Ag 
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -172,5 +172,3 @@ autocmd FileType text,mkd setlocal textwidth=80
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
-
-
