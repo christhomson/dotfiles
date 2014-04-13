@@ -24,3 +24,5 @@ if [[ -n $origin && -n $alternate_expression && -n $alternate_email && $origin =
 else
   git config --unset user.email
 fi
+
+exit 0
