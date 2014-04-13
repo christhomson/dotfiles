@@ -19,6 +19,13 @@ Bundle 'tpope/vim-endwise'
 " C-X + [space] in HTML insert mode
 Bundle 'tpope/vim-ragtag'
 
+" Snippets.
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+
+Bundle 'christhomson/vim-snippets'
+
 Bundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
