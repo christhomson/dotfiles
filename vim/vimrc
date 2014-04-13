@@ -16,6 +16,9 @@ Bundle 'gmarik/vundle'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-endwise'
 
+" C-X + [space] in HTML insert mode
+Bundle 'tpope/vim-ragtag'
+
 Bundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
