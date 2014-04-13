@@ -117,8 +117,6 @@ link_dotfiles() {
   ln -s ~/.config/ssh/config ~/.ssh/config
   ln -s ~/.config/vim/vimrc ~/.vimrc
   ln -s ~/.config/vim/gvimrc ~/.gvimrc
-  ln -s ~/.config/ruby/pryrc ~/.pryrc
-  ln -s ~/.config/ruby/irbrc ~/.irbrc
 }
 
 vundle_git_install() {
