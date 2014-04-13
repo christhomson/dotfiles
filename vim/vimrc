@@ -15,7 +15,6 @@ Bundle 'gmarik/vundle'
 " Automatically close quotes, brackets, etc.
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-endwise'
-Bundle 'docunext/closetag.vim'
 
 Bundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
