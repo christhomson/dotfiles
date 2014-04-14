@@ -10,7 +10,7 @@
 	st = status -sb
 	cp = cherry-pick
 	unstage = reset HEAD --
-	last = log -1 HEAD
+	last = !git --no-pager log -1 HEAD
 	stash-unapply = !git stash show -p | git apply -R
 	blame-anywhere = blame -C
 	down = smart-pull
