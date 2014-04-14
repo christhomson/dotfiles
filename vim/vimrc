@@ -115,6 +115,8 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'mustache/vim-mustache-handlebars'
 
+Bundle 'jnwhiteh/vim-golang'
+
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set backspace=indent,eol,start    " Intuitive backspacing.
@@ -180,6 +182,9 @@ autocmd FileType html,css,scss EmmetInstall
 autocmd FileType vim let b:loaded_delimitMate=0
 autocmd FileType html,eruby let b:closetag_html_style=1
 autocmd FileType text,mkd setlocal textwidth=80
+
+autocmd FileType go setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
