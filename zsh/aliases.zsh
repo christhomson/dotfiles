@@ -23,6 +23,7 @@ alias gbrt='git branch-timeline'
 alias gap='git add -p'
 alias grc='git rebase --continue'
 alias grh='git reset --hard'
+alias gca='git commit --amend'
 
 alias vi='vim'
 alias v='vi .'
