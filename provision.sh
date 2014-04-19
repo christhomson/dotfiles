@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -x
 
+create_directories() {
+  mkdir -p ~/dev/go
+}
+
 ssh_configuration() {
   if [[ ! -f ~/.ssh/id_rsa ]]; then
     read -p "An email address is needed for your SSH key. What is it? " email
@@ -153,6 +157,7 @@ gems_install() {
 }
 
 provision_mac_os_x() {
+  create_directories
   ssh_configuration
   homebrew_source_install
   homebrew_update
@@ -168,6 +173,7 @@ provision_mac_os_x() {
 }
 
 provision_linux_sudo() {
+  create_directories
   ssh_configuration
   apt_update
   git_apt_install
@@ -183,6 +189,7 @@ provision_linux_sudo() {
 }
 
 provision_linux() {
+  create_directories
   ssh_configuration
   git_source_install
   clone_dotfiles_repo
