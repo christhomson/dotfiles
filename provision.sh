@@ -156,6 +156,12 @@ gems_install() {
   fi
 }
 
+fix_zsh_config_for_vim() {
+  if [[ -f /etc/zshenv ]]; then
+    sudo mv /etc/zshenv /etc/zshrc
+  fi
+}
+
 provision_mac_os_x() {
   create_directories
   ssh_configuration
@@ -170,6 +176,7 @@ provision_mac_os_x() {
   vundle_git_install
   rbenv_git_install
   gems_install
+  fix_zsh_config_for_vim
 }
 
 provision_linux_sudo() {

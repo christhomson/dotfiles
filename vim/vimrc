@@ -46,7 +46,6 @@ nnoremap <leader>gd :Gdiff<CR>
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'r'
 nnoremap <leader>p :CtrlP<CR>
-nnoremap <leader>t :CtrlP<CR>
 
 " Autocompletion.
 Bundle 'Shougo/neocomplcache.vim'
@@ -82,6 +81,8 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rails'
 Bundle 'tmhedberg/matchit'
 Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'janx/vim-rubytest'
+Bundle 'tpope/vim-rbenv'
 
 " Easily rename files.
 Bundle 'vim-scripts/Rename2'
