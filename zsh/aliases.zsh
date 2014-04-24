@@ -25,7 +25,7 @@ alias grc='git rebase --continue'
 alias grh='git reset --hard'
 alias gca='git commit --amend'
 alias gua='git unstage *'
-alisa guc='git reset --soft HEAD~1'
+alias guc='git reset --soft HEAD~1'
 
 alias vi='vim'
 alias v='vi .'
