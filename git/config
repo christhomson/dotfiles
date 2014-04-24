@@ -25,6 +25,8 @@
 	assume-all = !git st -s | awk {'print $2'} | xargs git assume
 	edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; vim `f`"
 	add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+	root = rev-parse --show-toplevel
+	staged = diff --cached
 [push]
 	default = current
 [difftool]
