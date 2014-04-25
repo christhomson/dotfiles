@@ -189,7 +189,6 @@ provision_linux_sudo() {
   set_machine_name
   git_configuration
   ag_apt_install
-  link_dotfiles
   vundle_git_install
   rbenv_git_install
   gems_install
@@ -204,7 +203,6 @@ provision_linux() {
   set_machine_name
   git_configuration
   ag_source_install
-  link_dotfiles
   vundle_git_install
   rbenv_git_install
   gems_install
