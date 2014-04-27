@@ -118,6 +118,9 @@ Bundle 'mustache/vim-mustache-handlebars'
 
 Bundle 'jnwhiteh/vim-golang'
 
+" Basic proofreading
+Bundle 'reedes/vim-wordy'
+
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set backspace=indent,eol,start    " Intuitive backspacing.
