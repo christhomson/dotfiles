@@ -29,6 +29,7 @@ alias guc='git reset --soft HEAD~1'
 
 alias vi='vim'
 alias v='vi .'
+alias vbi='vim +BundleInstall +qall'
 
 alias gf='fg'
 
