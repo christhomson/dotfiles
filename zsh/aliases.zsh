@@ -26,6 +26,7 @@ alias grh='git reset --hard'
 alias gca='git commit --amend'
 alias gua='git unstage *'
 alias guc='git reset --soft HEAD~1'
+alias gbt='git branch-timeline'
 
 alias vi='vim'
 alias v='vi .'
