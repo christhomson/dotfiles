@@ -18,4 +18,4 @@ Currently, these are the dependencies that will be installed:
 
 The `provision.sh` script supports installing these dependencies on Macs, on Linux machines with `sudo` access (specify `--sudo`), and on Linux machines where you don't have `sudo` access.
 
-I would recommend running `provision.sh` after each pull to ensure anything new gets installed.
+Instead of `git pull`ing to get the latest changes, run `update-dotfiles`, which will pull down the latest changes and run the `provision.sh` script for you to install any new dependencies.
