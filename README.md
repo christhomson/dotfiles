@@ -17,3 +17,5 @@ Currently, these are the dependencies that will be installed:
 * [rbenv](https://github.com/sstephenson/rbenv) [optional]
 
 The `provision.sh` script supports installing these dependencies on Macs, on Linux machines with `sudo` access (specify `--sudo`), and on Linux machines where you don't have `sudo` access.
+
+I would recommend running `provision.sh` after each pull to ensure anything new gets installed.
