@@ -1,23 +1,3 @@
-Host fa0
-  HostName fa0.fusionads.net
-  Port 2442
-  User fusion
-
-Host fa1
-  HostName fa1.fusionads.net
-  Port 2442
-  User fusion
-
-Host fa0.fusionads.net
-  HostName fa0.fusionads.net
-  Port 2442
-  User fusion
-
-Host fa1.fusionads.net
-  HostName fa1.fusionads.net
-  Port 2442
-  User fusion
-
 Host student.cs
   HostName linux024.student.cs.uwaterloo.ca
   User cdthomso
