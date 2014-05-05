@@ -14,7 +14,7 @@ alias bails='echo "Use rails!" && bundle exec rails'
 alias ss='script/server'
 
 alias ga='git add'
-alias gs='git st'
+alias gs='git status'
 alias gst='git stash'
 alias gsa='git stash apply'
 alias gsp='git stash pop'

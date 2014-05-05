@@ -6,8 +6,6 @@
 [alias]
 	co = checkout
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	s = status -sb
-	st = status -sb
 	cp = cherry-pick
 	unstage = reset HEAD --
 	last = !git --no-pager log -1 HEAD
@@ -45,3 +43,6 @@
 	insteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
 	pushInsteadOf = "https://github.com/"
+[status]
+	short = 1
+	branch = 1
