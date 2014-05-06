@@ -30,6 +30,7 @@
 [difftool]
 [diff]
 	algorithm = patience
+	renames = copies
 [help]
 	autocorrect = 30
 [color]
