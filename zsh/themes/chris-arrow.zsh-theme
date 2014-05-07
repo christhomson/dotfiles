@@ -26,7 +26,7 @@ git_prompt_info() {
 ruby_version() {
   if [ ! -z $RUBY_VERSION ]; then
     echo "$RUBY_VERSION"
-  else
+  elif ! [ `which rbenv &>/dev/null` ]; then
     echo "`rbenv version-name`"
   fi
 }
