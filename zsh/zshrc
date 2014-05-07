@@ -1,6 +1,12 @@
 ZSH=$HOME/.config/zsh
 export EDITOR=vim
 
+export LOCATION="anywhere"
+
+if [[ `hostname` =~ linux0[0-9][0-9]\.student\.cs ]]; then
+  LOCATION="school"
+fi
+
 source $ZSH/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
@@ -19,12 +25,6 @@ fi
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-theme $ZSH/themes/chris-arrow.zsh-theme
 antigen-apply
-
-export LOCATION="anywhere"
-
-if [[ `hostname` =~ linux0[0-9][0-9]\.student\.cs ]]; then
-  LOCATION="school"
-fi
 
 # Don't annoy me as much as you'd like to.
 export UPDATE_ZSH_DAYS=30 
