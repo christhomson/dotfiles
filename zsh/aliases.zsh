@@ -36,6 +36,8 @@ alias gf='fg'
 
 alias nm='nodemon'
 
+alias latex='latexmk -pvc -pdf'
+
 alias reload='source ~/.zshrc'
 alias rl='source ~/.zshrc'
 
