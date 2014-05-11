@@ -2,8 +2,8 @@ Host student.cs
   HostName linux024.student.cs.uwaterloo.ca
   User cdthomso
 
-Host noteface
-  HostName noteface.cthomson.ca
+Host do
+  HostName deploy.cthomson.ca
   User deploy
 
 Host digitalocean
