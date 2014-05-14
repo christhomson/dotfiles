@@ -124,7 +124,9 @@ link_dotfiles() {
 }
 
 vundle_git_install() {
-  if [[ -d "~/.vim/bundle/vundle" ]]; then
+  mkdir -p ~/.vim/bundle
+
+  if [[ ! -d "~/.vim/bundle/vundle" ]]; then
     git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   fi
   vim +BundleInstall +qall
