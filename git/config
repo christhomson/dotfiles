@@ -32,7 +32,7 @@
 	algorithm = patience
 	renames = copies
 [help]
-	autocorrect = 30
+	autocorrect = 20
 [color]
 	ui = true
 [log]
