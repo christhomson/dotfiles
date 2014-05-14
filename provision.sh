@@ -64,7 +64,7 @@ git_source_install() {
 
 clone_dotfiles_repo() {
   if [[ -d "~/.config" ]]; then
-    git clone --recursive git@github.com:christhomson/dotfiles.git ~/.config
+    git clone --recursive git://github.com/christhomson/dotfiles.git ~/.config
   fi
 }
 
@@ -106,7 +106,7 @@ ag_source_install() {
   if [[ `which ag &>/dev/null` ]]; then
     cd ~
     mkdir -p usr
-    git clone git@github.com:ggreer/the_silver_searcher.git
+    git clone git://github.com/ggreer/the_silver_searcher.git
     cd the_silver_searcher
     ./build.sh --prefix=$ABSOLUTE_HOME/usr
     make install
@@ -125,7 +125,7 @@ link_dotfiles() {
 
 vundle_git_install() {
   if [[ -d "~/.vim/bundle/vundle" ]]; then
-    git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
+    git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   fi
   vim +BundleInstall +qall
 }
@@ -133,11 +133,11 @@ vundle_git_install() {
 rbenv_git_install() {
   if [[ -z "$SKIP_RBENV" ]]; then
     if [[ `which rbenv &>/dev/null` ]]; then
-      git clone git@github.com:sstephenson/rbenv.git ~/.rbenv
+      git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
     fi
 
     if [[ -d "~/.rbenv/plugins/rbenv-gem-rehash" ]]; then
-      git clone git@github.com:sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+      git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
     fi
   fi
 }
