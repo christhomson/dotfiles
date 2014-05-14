@@ -13,6 +13,10 @@ Host digitalocean
 Host github.com
   User git
 
+Host cs349
+  HostName 192.168.1.71
+  User cs349
+
 Host *
   ForwardAgent no
   ServerAliveInterval 60
