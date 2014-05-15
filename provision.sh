@@ -121,6 +121,9 @@ link_dotfiles() {
   ln -s ~/.config/ssh/config ~/.ssh/config
   ln -s ~/.config/vim/vimrc ~/.vimrc
   ln -s ~/.config/vim/gvimrc ~/.gvimrc
+
+  mkdir -p ~/.subversion
+  ln -s ~/.config/svn/config ~/.subversion/config
 }
 
 vundle_git_install() {
