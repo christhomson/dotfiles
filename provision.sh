@@ -133,6 +133,7 @@ vundle_git_install() {
     git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   fi
   vim +BundleInstall +qall
+  vim +BundleClean +qall
 }
 
 rbenv_git_install() {
