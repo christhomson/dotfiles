@@ -187,6 +187,7 @@ autocmd FileType vim let b:loaded_delimitMate=0
 autocmd FileType html,eruby let b:closetag_html_style=1
 autocmd FileType text,mkd setlocal textwidth=80
 autocmd FileType sql filetype plugin off
+autocmd BufRead,BufNewFile *.sqc set filetype=c
 
 autocmd FileType go setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
