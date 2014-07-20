@@ -54,6 +54,7 @@ fi
 
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
+alias ls='ls -G'
+
 # Don't log these in my history.
-alias ls=' ls -G'
 alias cd=' cd'
