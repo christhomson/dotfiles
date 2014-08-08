@@ -13,11 +13,6 @@ Host digitalocean
 Host github.com
   User git
 
-Host cs349
-  HostName 127.0.0.1
-  User cs349
-  Port 4022
-
 Host *
   ForwardAgent no
   ServerAliveInterval 60
