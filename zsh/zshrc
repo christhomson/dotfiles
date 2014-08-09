@@ -9,8 +9,6 @@ antigen-use oh-my-zsh
 
 antigen-bundle brew
 antigen-bundle gitfast
-antigen-bundle npm
-antigen-bundle vagrant
 
 if [ `uname`="Darwin" ]; then
   export OSX=1
