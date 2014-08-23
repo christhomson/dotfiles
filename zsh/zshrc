@@ -51,7 +51,7 @@ bindkey '^Z' foreground-vi
 
 zstyle ':completion:*:processes-names' command 'ps -e -o comm='
 
-if which rbenv &>/dev/null ; then
+if ! which rbenv &>/dev/null ; then
   source $ZSH/rbenv.zsh
 fi
 
