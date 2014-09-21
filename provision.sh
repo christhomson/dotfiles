@@ -136,18 +136,6 @@ vundle_git_install() {
   vim +BundleClean +qall
 }
 
-rbenv_git_install() {
-  if [[ -z "$SKIP_RBENV" ]]; then
-    if [[ `which rbenv &>/dev/null` ]]; then
-      git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-    fi
-
-    if [[ -d "~/.rbenv/plugins/rbenv-gem-rehash" ]]; then
-      git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-    fi
-  fi
-}
-
 gems_install() {
   if [[ `gem list -i awesome_print` == "false" ]]; then
     gem install awesome_print
@@ -180,7 +168,6 @@ provision_mac_os_x() {
   git_configuration
   ag_homebrew_install
   vundle_git_install
-  rbenv_git_install
   gems_install
   fix_zsh_config_for_vim
 }
@@ -196,7 +183,6 @@ provision_linux_sudo() {
   git_configuration
   ag_apt_install
   vundle_git_install
-  rbenv_git_install
   gems_install
 }
 
@@ -210,7 +196,6 @@ provision_linux() {
   git_configuration
   ag_source_install
   vundle_git_install
-  rbenv_git_install
   gems_install
 }
 

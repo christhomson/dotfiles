@@ -82,7 +82,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'tmhedberg/matchit'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'janx/vim-rubytest'
-Bundle 'tpope/vim-rbenv'
 
 " Easily rename files.
 Bundle 'vim-scripts/Rename2'
