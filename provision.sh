@@ -136,6 +136,14 @@ vundle_git_install() {
   vim +BundleClean +qall
 }
 
+chruby_homebrew_install() {
+  brew install chruby
+}
+
+ruby-install_homebrew_install() {
+  brew install ruby-install
+}
+
 gems_install() {
   if [[ `gem list -i awesome_print` == "false" ]]; then
     gem install awesome_print
@@ -168,6 +176,8 @@ provision_mac_os_x() {
   git_configuration
   ag_homebrew_install
   vundle_git_install
+  chruby_homebrew_install
+  ruby-install_homebrew_install
   gems_install
   fix_zsh_config_for_vim
 }

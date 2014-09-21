@@ -51,6 +51,7 @@ bindkey '^Z' foreground-vi
 
 zstyle ':completion:*:processes-names' command 'ps -e -o comm='
 
+source /usr/local/opt/chruby/share/chruby/chruby.sh
 setopt nohistverify
 
 export TZ='America/New_York'
