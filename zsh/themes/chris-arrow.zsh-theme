@@ -24,11 +24,7 @@ git_prompt_info() {
 }
 
 ruby_version() {
-  if [ ! -z $RUBY_VERSION ]; then
-    echo "$RUBY_VERSION"
-  else
-    echo "`rbenv version-name`"
-  fi
+  echo "`ruby -e 'print RUBY_VERSION'`"
 }
 
 if [[ -z $elapsed_time ]]; then
