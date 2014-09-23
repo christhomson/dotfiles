@@ -109,7 +109,9 @@ Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'AndrewRadev/vim-eco'
 au BufNewFile,BufRead *.coffee set filetype=coffee
+au BufNewFile,BufRead *.eco set filetype=eco
 
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'cakebaker/scss-syntax.vim'
