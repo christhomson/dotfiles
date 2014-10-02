@@ -24,7 +24,7 @@ git_prompt_info() {
 }
 
 ruby_version() {
-  echo "`ruby -e 'print RUBY_VERSION'`"
+  echo $RUBY_VERSION
 }
 
 if [[ -z $elapsed_time ]]; then
