@@ -7,7 +7,6 @@ source $ZSH/antigen/antigen.zsh
 
 antigen-use oh-my-zsh
 
-antigen-bundle brew
 antigen-bundle gitfast
 
 if [ `uname`="Darwin" ]; then
@@ -21,7 +20,7 @@ antigen-theme $ZSH/themes/chris-arrow.zsh-theme
 antigen-apply
 
 # Don't annoy me as much as you'd like to.
-export UPDATE_ZSH_DAYS=30 
+export UPDATE_ZSH_DAYS=30
 export DISABLE_UPDATE_PROMPT=true
 
 export COMPLETION_WAITING_DOTS="true"

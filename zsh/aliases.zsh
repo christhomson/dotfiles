@@ -2,14 +2,12 @@ alias ..='cd ..'
 
 alias b='bundle'
 alias be='bundle exec'
-alias bx='bundle exec'
 alias bc='bundle exec rails console'
 alias bs='bundle exec rails server'
 alias bi='bundle install'
 alias bo='bundle open'
 alias bu='bundle update'
 alias bake='echo "Use rake!" && bundle exec rake'
-alias bt='bundle exec rake test'
 alias bails='echo "Use rails!" && bundle exec rails'
 alias ss='script/server'
 
@@ -19,7 +17,6 @@ alias gst='git stash'
 alias gsa='git stash apply'
 alias gsp='git stash pop'
 alias gd='git diff'
-alias gbrt='git branch-timeline'
 alias gap='git add -p'
 alias grc='git rebase --continue'
 alias grh='git reset --hard'
@@ -44,7 +41,7 @@ alias reload='source ~/.zshrc'
 alias rl='source ~/.zshrc'
 
 # Pretty print JSON.
-alias ppj='python -mjson.tool'
+alias json='python -mjson.tool'
 
 # Use OpenDNS to tell us our external IP.
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
