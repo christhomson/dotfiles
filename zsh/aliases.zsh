@@ -8,6 +8,7 @@ alias bi='bundle install'
 alias bo='bundle open'
 alias bu='bundle update'
 alias bake='echo "Use rake!" && bundle exec rake'
+alias rt='rake test'
 alias bails='echo "Use rails!" && bundle exec rails'
 alias ss='script/server'
 
