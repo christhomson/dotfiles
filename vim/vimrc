@@ -102,7 +102,7 @@ Bundle 'tomtom/tcomment_vim'
 map <leader>gc :TComment<CR>
 
 Bundle 'jgdavey/tslime.vim'
-map <Leader>T :call Send_to_Tmux("bundle exec rake test\n")<CR>3<CR>
+"map <Leader>T :call Send_to_Tmux("bundle exec rake test\n")<CR>3<CR>
 autocmd FileType ruby map <Leader>t :call Send_to_Tmux("bundle exec rake TEST=" . @% . " test\n")<CR>3<CR>
 
 Bundle 'chriskempson/vim-tomorrow-theme'
