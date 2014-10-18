@@ -1,0 +1,12 @@
+# ~/.tmuxinator/octodata.yml
+
+name: octodata
+root: ~/dev/octodata/
+
+windows:
+  - octodata:
+      layout: main-vertical
+      panes:
+        - vim .
+        - bundle exec rails server
+        - bundle exec rake test

@@ -1,0 +1,21 @@
+# ~/.tmuxinator/shopify.yml
+
+name: shopify
+root: ~/dev/vagrant
+
+windows:
+  - shopify:
+      layout: main-vertical
+      panes:
+        - editor:
+          - vagrant ssh
+          - cd src/shopify
+          - vim .
+        - server:
+          - vagrant ssh
+          - cd src/shopify
+          - bundle exec rails server
+        - misc:
+          - vagrant ssh
+          - cd src/shopify
+          - bundle exec rake test

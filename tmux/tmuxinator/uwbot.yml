@@ -1,0 +1,13 @@
+# ~/.tmuxinator/uwbot.yml
+
+name: uwbot
+root: ~/dev/uwbot
+
+windows:
+  - uwbot:
+      layout: main-vertical
+      panes:
+        - vim .
+        - bin/hubot
+        -
+  - redis-server: redis-server

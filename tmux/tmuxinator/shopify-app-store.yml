@@ -1,0 +1,21 @@
+# ~/.tmuxinator/shopify-app-store.yml
+
+name: shopify-app-store
+root: ~/dev/vagrant
+
+windows:
+  - app-store:
+      layout: main-vertical
+      panes:
+        - editor:
+          - vagrant ssh
+          - cd src/shopify-app-store
+          - vim .
+        - server:
+          - vagrant ssh
+          - cd src/shopify-app-store
+          - bundle exec rails server
+        - misc:
+          - vagrant ssh
+          - cd src/shopify-app-store
+          - bundle exec rake test
