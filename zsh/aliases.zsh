@@ -7,9 +7,7 @@ alias bs='bundle exec rails server'
 alias bi='bundle install'
 alias bo='bundle open'
 alias bu='bundle update'
-alias bake='echo "Use rake!" && bundle exec rake'
 alias rt='rake test'
-alias bails='echo "Use rails!" && bundle exec rails'
 alias ss='script/server'
 
 alias ga='git add'
@@ -40,7 +38,6 @@ alias nm='nodemon'
 alias latex='latexmk -pvc -pdf'
 
 alias reload='source ~/.zshrc'
-alias rl='source ~/.zshrc'
 
 # Pretty print JSON.
 alias json='python -mjson.tool'
