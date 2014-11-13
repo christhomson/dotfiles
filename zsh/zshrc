@@ -24,7 +24,6 @@ export UPDATE_ZSH_DAYS=30
 export DISABLE_UPDATE_PROMPT=true
 
 export COMPLETION_WAITING_DOTS="true"
-export VAGRANT_COOKBOOKS_BRANCH="chris"
 
 source $ZSH/machine.zsh
 source $ZSH/aliases.zsh
