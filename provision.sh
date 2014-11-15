@@ -159,6 +159,12 @@ gems_install() {
   fi
 }
 
+cmatcher_install() {
+  cd ~/.vim/bundle/ctrlp-cmatcher/
+  ./install.sh
+  cd -
+}
+
 fix_zsh_config_for_vim() {
   if [[ -f /etc/zshenv ]]; then
     sudo mv /etc/zshenv /etc/zshrc
@@ -166,6 +172,9 @@ fix_zsh_config_for_vim() {
 }
 
 provision_mac_os_x() {
+  export CFLAGS=-Qunused-arguments
+  export CPPFLAGS=-Qunused-arguments
+
   create_directories
   ssh_configuration
   homebrew_source_install
@@ -177,6 +186,7 @@ provision_mac_os_x() {
   git_configuration
   ag_homebrew_install
   vundle_git_install
+  cmatcher_install
   chruby_homebrew_install
   ruby-install_homebrew_install
   gems_install
@@ -184,6 +194,8 @@ provision_mac_os_x() {
 }
 
 provision_linux_sudo() {
+  sudo apt-get install python-dev
+
   create_directories
   ssh_configuration
   apt_update
@@ -194,10 +206,13 @@ provision_linux_sudo() {
   git_configuration
   ag_apt_install
   vundle_git_install
+  cmatcher_install
   gems_install
 }
 
 provision_linux() {
+  apt-get install python-dev
+
   create_directories
   ssh_configuration
   git_source_install
@@ -207,6 +222,7 @@ provision_linux() {
   git_configuration
   ag_source_install
   vundle_git_install
+  cmatcher_install
   gems_install
 }
 

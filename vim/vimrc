@@ -44,7 +44,9 @@ nnoremap <leader>gd :Gdiff<CR>
 " Fuzzy file matcher.
 " Looks to ancestor directories to find the source control root.
 Bundle 'kien/ctrlp.vim'
+Bundle 'JazzCore/ctrlp-cmatcher'
 let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 nnoremap <leader>p :CtrlP<CR>
 
 " Autocompletion.
