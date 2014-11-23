@@ -40,6 +40,9 @@ Bundle 'gregsexton/gitv'
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
+" File tree explorer
+Bundle 'scrooloose/nerdtree'
+let g:NERDTreeWinSize = 40
 
 " Fuzzy file matcher.
 " Looks to ancestor directories to find the source control root.

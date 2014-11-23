@@ -28,7 +28,7 @@ alias gpo='git pull origin'
 alias gpom='git pull origin master'
 
 alias vi='vim'
-alias v='vi .'
+alias v='vi'
 alias vbi='vim +BundleInstall +qall'
 
 alias gf='fg'
