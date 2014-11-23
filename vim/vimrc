@@ -69,16 +69,28 @@ let g:airline#extensions#tabline#enabled = 1
 " Find in project.
 if executable('ag')
   Bundle 'rking/ag.vim'
-  nnoremap <C-a> :Ag 
-  nnoremap <leader>f :Ag 
+  nnoremap <C-a> :Ag
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 elseif executable('ack')
   Bundle 'mileszs/ack.vim'
-  nnoremap <C-f> :Ack
-  nnoremap <leader>f :Ack
+  nnoremap <C-a> :Ack
 endif
+
+command! FindCurrentSymbolInProject call FindCurrentSymbolInProject()
+function! FindCurrentSymbolInProject()
+  if executable('ag')
+    let l:currentWordCommand = "Ag"
+  elseif executable('ack')
+    let l:currentWordCommand = "Ack"
+  else
+    return
+  endif
+
+  execute l:currentWordCommand . " " . expand("<cword>")
+endfunction
+nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
 " Ruby stuff.
 Bundle 'tpope/vim-bundler'
