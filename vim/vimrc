@@ -157,6 +157,9 @@ set autoread
 set cursorline
 set list listchars=tab:»·,trail:· " Show extra whitespace.
 set nofoldenable
+set ttyfast
+set mouse=a
+set ttymouse=xterm2
 
 highlight CursorLine cterm=none ctermbg=0
 
