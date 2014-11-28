@@ -26,6 +26,7 @@
 	root = rev-parse --show-toplevel
 	staged = diff --cached
 	pr = "!f() { git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2-; }; f"
+	sl = "!f() { git stash list | while IFS=: read STASH ETC; do echo "$STASH: $ETC"; git diff --stat --exit-code $STASH~..$STASH --; done }; f"
 [push]
 	default = current
 [difftool]
