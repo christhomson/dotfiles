@@ -27,6 +27,7 @@ alias guc='git reset --soft HEAD~1'
 alias gbt='git branch-timeline'
 alias gpo='git pull origin'
 alias gpom='git pull origin master'
+alias gn='git update-master; bundle install; git checkout -b'
 
 alias vi='vim'
 alias v='vi'
