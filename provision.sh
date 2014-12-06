@@ -174,6 +174,7 @@ fix_zsh_config_for_vim() {
 provision_mac_os_x() {
   export CFLAGS=-Qunused-arguments
   export CPPFLAGS=-Qunused-arguments
+  defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
   create_directories
   ssh_configuration
