@@ -28,6 +28,7 @@
 	pr = "!f() { git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2-; }; f"
 	sl = "!f() { git stash list | while IFS=: read STASH ETC; do echo "$STASH: $ETC"; git diff --stat --exit-code $STASH~..$STASH --; done }; f"
 	update-master = "!f() { git stash save -u; git checkout master; git pull origin master; }; f"
+	branch-diff = diff master...
 [push]
 	default = current
 [difftool]
