@@ -7,6 +7,7 @@ export PATH="/usr/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.config/bin:$PATH"
+export PATH="$HOME/.config/bin/icdiff:$PATH"
 
 if [[ LOCATION == "home" ]]; then
   export PATH="/usr/texbin:$PATH"

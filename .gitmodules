@@ -1,3 +1,6 @@
 [submodule "zsh/antigen"]
 	path = zsh/antigen
 	url = git://github.com/zsh-users/antigen.git
+[submodule "bin/icdiff"]
+	path = bin/icdiff
+	url = git@github.com:jeffkaufman/icdiff.git
