@@ -2,6 +2,7 @@ alias ..='cd ..'
 
 alias b='bundle'
 alias be='bundle exec'
+alias bake='bundle exec rake'
 alias bc='bundle exec rails console'
 alias bs='bundle exec rails server'
 alias bi='bundle install'
