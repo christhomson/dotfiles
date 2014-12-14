@@ -36,7 +36,7 @@ Bundle 'tpope/vim-fugitive'
 if $LOCATION != "school"
   Bundle 'airblade/vim-gitgutter'
 endif
-Bundle 'gregsexton/gitv'
+nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
@@ -93,8 +93,6 @@ endfunction
 nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
 " Ruby stuff.
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-rails'
 Bundle 'tmhedberg/matchit'
 Bundle 'ecomba/vim-ruby-refactoring'
@@ -102,18 +100,6 @@ Bundle 'janx/vim-rubytest'
 
 " Easily rename files.
 Bundle 'vim-scripts/Rename2'
-
-" Tagbar uses ctags.
-Bundle 'majutsushi/tagbar'
-nnoremap <leader>b :TagbarOpenAutoClose<CR>
-
-" Write boilerplate HTML inspired by CSS selectors
-Bundle 'mattn/emmet-vim'
-let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='<C-e>' " <C-e>,
-
-" Asynchronous tests, etc.
-Bundle 'tpope/vim-dispatch'
 
 Bundle 'tomtom/tcomment_vim'
 map <leader>gc :TComment<CR>
@@ -183,8 +169,6 @@ let g:tex_flavor='latex'
 let g:Tex_ViewRule_pdf = 'open -a Skim'
 let g:Imap_UsePlaceHolders = 0 " disable <++> markers
 "let g:Tex_CompileRule_pdf = 'xelatex --interaction=nonstopmode $*'
-
-cmap w!! %!sudo tee > /dev/null %   " Force save, if you forgot to sudo when needed
 
 " Ignore patterns for autocompletion.
 set wildignore=*.o,*.obj,*~,*sass-cache*,*DS_Store*,*/log/**,*/tmp/**,*.png,*.jpg,*.gif,*node_modules*
