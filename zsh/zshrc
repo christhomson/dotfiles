@@ -15,8 +15,10 @@ if [ `uname`="Darwin" ]; then
   antigen-bundle sublime
 fi
 
+[ -f $ZSH/machine.zsh ] && source $ZSH/machine.zsh
+
 antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-theme juanghurtado
+antigen-theme $ZSH/themes/juanghurtado.zsh-theme
 antigen-apply
 
 # Don't annoy me as much as you'd like to.
