@@ -16,7 +16,7 @@ if [ `uname`="Darwin" ]; then
 fi
 
 antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-theme $ZSH/themes/chris-arrow.zsh-theme
+antigen-theme juanghurtado
 antigen-apply
 
 # Don't annoy me as much as you'd like to.
@@ -25,7 +25,6 @@ export DISABLE_UPDATE_PROMPT=true
 
 export COMPLETION_WAITING_DOTS="true"
 
-source $ZSH/machine.zsh
 source $ZSH/aliases.zsh
 source $ZSH/path.zsh
 source $ZSH/functions.zsh
