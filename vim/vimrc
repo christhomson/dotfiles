@@ -106,7 +106,7 @@ Bundle 'tomtom/tcomment_vim'
 map <leader>gc :TComment<CR>
 
 Bundle 'chriskempson/vim-tomorrow-theme'
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Eighties
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
@@ -162,7 +162,7 @@ set ttymouse=xterm2
 
 highlight CursorLine cterm=none ctermbg=0
 
-let &t_Co=256
+set t_Co=256
 
 " Makes Vim recognize empty .tex files properly as tex files instead of
 " plaintex files.
