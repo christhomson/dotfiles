@@ -8,7 +8,7 @@ alias bs='bundle exec rails server'
 alias bi='bundle install'
 alias bo='bundle open'
 alias bu='bundle update'
-alias rt='rake test'
+alias t='bundle exec spring testunit'
 alias ss='script/server'
 
 alias ga='git add'
