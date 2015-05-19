@@ -29,6 +29,7 @@
 	sl = "!f() { git stash list | while IFS=: read STASH ETC; do echo "$STASH: $ETC"; git diff --stat --exit-code $STASH~..$STASH --; done }; f"
 	update-master = "!f() { git stash save -u; git checkout master; git pull origin master; }; f"
 	branch-diff = diff master...
+	squash = !HEAD_COMMIT=$(git rev-list @ -n 1) BASE_COMMIT=$(git merge-base @ origin/master) && git reset --soft $BASE_COMMIT && git commit --reuse-message=$HEAD_COMMIT~$[$(git rev-list $BASE_COMMIT..$HEAD_COMMIT --count)-1] --edit
 [push]
 	default = current
 [difftool]

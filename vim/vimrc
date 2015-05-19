@@ -190,7 +190,6 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType gitcommit setlocal spell textwidth=72
 autocmd FileType tex setlocal spell
 autocmd FileType mkd setlocal spell
-autocmd FileType html,css,scss EmmetInstall
 autocmd FileType vim let b:loaded_delimitMate=0
 autocmd FileType html,eruby let b:closetag_html_style=1
 autocmd FileType text,mkd setlocal textwidth=80
@@ -200,6 +199,8 @@ autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 autocmd FileType go setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+set tw=0
 
 
 " inoremap  <Up>     <NOP>
