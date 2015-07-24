@@ -56,7 +56,6 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 nnoremap <C-K> :CtrlPControllers<CR>
 nnoremap <C-M> :CtrlPModels<CR>
-nnoremap <C-W> :CtrlPViews<CR>
 
 " Autocompletion.
 Bundle 'Shougo/neocomplcache.vim'
