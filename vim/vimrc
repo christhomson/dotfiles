@@ -25,6 +25,8 @@ Bundle 'garbas/vim-snipmate'
 
 Bundle 'christhomson/vim-snippets'
 
+Bundle 'tpope/vim-surround'
+
 Bundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
