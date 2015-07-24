@@ -18,9 +18,6 @@ Bundle 'gmarik/vundle'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-endwise'
 
-" C-X + [space] in HTML insert mode
-Bundle 'tpope/vim-ragtag'
-
 " Snippets.
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'

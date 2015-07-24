@@ -16,11 +16,8 @@ alias gs='git status'
 alias gst='git stash'
 alias gsa='git stash apply'
 alias gsp='git stash pop'
-alias gsl='git sl'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gdi='git difftool --no-prompt --extcmd icdiff "$@" | less'
-alias gbd='git branch-diff'
 alias gap='git add -p'
 alias grc='git rebase --continue'
 alias grs='git rebase --skip'
@@ -32,14 +29,15 @@ alias gbt='git branch-timeline'
 alias gpo='git pull origin'
 alias gpom='git pull origin master'
 alias gn='git update-master; bundle install; git checkout -b'
+alias gm='git checkout master'
+alias gr='git fetch origin master && git rebase origin/master && bundle install && rake db:migrate'
+
+alias fos='bundle exec spring stop'
 
 alias vi='vim'
 alias v='vi'
-alias vbi='vim +BundleInstall +qall'
 
 alias gf='fg'
-
-alias nm='nodemon'
 
 alias latex='latexmk -pvc -pdf'
 
