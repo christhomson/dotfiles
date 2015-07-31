@@ -26,6 +26,12 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'christhomson/vim-snippets'
 
 Bundle 'tpope/vim-surround'
+Bundle 'bronson/vim-trailing-whitespace'
+let g:extra_whitespace_ignored_filetypes = ['gitcommit']
+
+Bundle 'junegunn/rainbow_parentheses.vim'
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+au VimEnter * RainbowParentheses
 
 Bundle 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
