@@ -49,7 +49,7 @@ let g:NERDTreeWinSize = 40
 
 " Fuzzy file matcher.
 " Looks to ancestor directories to find the source control root.
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'iurifq/ctrlp-rails.vim'
 Bundle 'JazzCore/ctrlp-cmatcher'
 let g:ctrlp_working_path_mode = 'r'
