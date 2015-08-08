@@ -201,7 +201,6 @@ autocmd FileType tex setlocal spell
 autocmd FileType mkd setlocal spell
 autocmd FileType vim let b:loaded_delimitMate=0
 autocmd FileType html,eruby let b:closetag_html_style=1
-autocmd FileType text,mkd setlocal textwidth=80
 autocmd FileType sql filetype plugin off
 autocmd BufRead,BufNewFile *.sqc set filetype=c
 autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4
