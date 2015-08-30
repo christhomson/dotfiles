@@ -38,6 +38,8 @@ alias fos='bundle exec spring stop'
 alias vi='vim'
 alias v='vi'
 
+alias va='cd ~/vagrant/; if ! vagrant ssh 2>/dev/null; then vagrant up; vagrant ssh; fi'
+
 alias gf='fg'
 
 alias latex='latexmk -pvc -pdf'
