@@ -68,6 +68,8 @@ Bundle 'Shougo/neocomplcache.vim'
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_force_overwrite_completefunc=1
 
+Bundle 'ervandew/supertab'
+
 " Syntax checking on save.
 Bundle 'scrooloose/syntastic'
 let g:syntastic_java_javac_config_file_enabled = 1
