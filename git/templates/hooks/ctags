@@ -1,0 +1,2 @@
+#!/bin/sh
+ctags -R --languages=ruby --exclude=.git --exclude=log .

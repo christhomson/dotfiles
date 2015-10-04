@@ -180,6 +180,7 @@ provision_mac_os_x() {
   homebrew_source_install
   homebrew_update
   git_homebrew_install
+  brew install ctags
   clone_dotfiles_repo
   link_dotfiles
   set_machine_name
@@ -206,6 +207,7 @@ provision_linux_sudo() {
   git_configuration
   ag_apt_install
   vundle_git_install
+  sudo apt-get install ctags
   cmatcher_install
   gems_install
 }

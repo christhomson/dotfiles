@@ -25,6 +25,7 @@ Bundle 'garbas/vim-snipmate'
 
 Bundle 'christhomson/vim-snippets'
 
+Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'bronson/vim-trailing-whitespace'
 let g:extra_whitespace_ignored_filetypes = ['gitcommit']
@@ -62,6 +63,7 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 nnoremap <C-K> :CtrlPControllers<CR>
 nnoremap <C-L> :CtrlPModels<CR>
+nnoremap <C-M> :CtrlPTag<CR>
 
 " Autocompletion.
 Bundle 'Shougo/neocomplcache.vim'
