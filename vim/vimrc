@@ -63,7 +63,7 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 nnoremap <C-K> :CtrlPControllers<CR>
 nnoremap <C-L> :CtrlPModels<CR>
-nnoremap <C-M> :CtrlPTag<CR>
+nnoremap <C-y> :CtrlPTag<CR>
 
 " Autocompletion.
 Bundle 'Shougo/neocomplcache.vim'
@@ -87,6 +87,7 @@ if executable('ag')
   Bundle 'rking/ag.vim'
   nnoremap <C-a> :Ag 
   set grepprg=ag\ --nogroup\ --nocolor
+  let g:ag_prg="ag --column --nogroup --noheading --smart-case --ignore '*.log'"
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 elseif executable('ack')
