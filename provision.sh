@@ -122,6 +122,7 @@ link_dotfiles() {
   ln -s ~/.config/vim/vimrc ~/.vimrc
   ln -s ~/.config/vim/gvimrc ~/.gvimrc
   ln -s ~/.config/zsh/zshrc ~/.zshrc
+  ln -s ~/.config/latex/latexmkrc ~/.latexmkrc
 
   mkdir -p ~/.subversion
   ln -s ~/.config/svn/config ~/.subversion/config
