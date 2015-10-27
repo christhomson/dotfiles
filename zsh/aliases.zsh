@@ -49,6 +49,9 @@ alias reload='source ~/.zshrc'
 # Pretty print JSON.
 alias json='python -mjson.tool'
 
+# Highlighted cat.
+alias hcat="pygmentize -g -O style=rrt -f terminal256"
+
 # Use OpenDNS to tell us our external IP.
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 
