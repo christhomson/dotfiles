@@ -30,8 +30,11 @@ alias gpo='git pull origin'
 alias gpom='git pull origin master'
 alias gn='git update-master; bundle install; git checkout -b'
 alias gm='git checkout master'
-alias gr='git fetch origin master && git rebase origin/master && bundle install && rake db:migrate'
+alias gr='git rebase'
+alias grm='git rebase master'
 alias gch='git changes'
+
+alias up='gco master && gpom && bi && rake db:migrate db:test:clone'
 
 alias fos='bundle exec spring stop'
 
