@@ -115,6 +115,9 @@ Bundle 'tmhedberg/matchit'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'janx/vim-rubytest'
 
+let g:rubytest_cmd_test = "bundle exec spring testunit %p"
+let g:rubytest_cmd_testcase = "bundle exec spring testunit %p -n '/%c/'"
+
 " Easily rename files.
 Bundle 'vim-scripts/Rename2'
 
