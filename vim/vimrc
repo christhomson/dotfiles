@@ -142,7 +142,7 @@ Bundle 'mustache/vim-mustache-handlebars'
 
 Bundle 'jnwhiteh/vim-golang'
 
-Bundle 'pangloss/vim-javascript'
+" Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 
