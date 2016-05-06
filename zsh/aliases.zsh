@@ -11,6 +11,9 @@ alias bu='bundle update'
 alias t='bundle exec spring testunit'
 alias ss='script/server'
 
+alias dup='dev update && dev up'
+alias ds='dev server'
+
 alias ga='git add'
 alias gs='git status'
 alias gst='git stash'
