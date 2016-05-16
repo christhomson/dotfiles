@@ -186,6 +186,7 @@ provision_mac_os_x() {
   homebrew_update
   git_homebrew_install
   brew install ctags
+  brew install gpg gpg-agent pinentry-mac
   clone_dotfiles_repo
   link_dotfiles
   set_machine_name
