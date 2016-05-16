@@ -39,14 +39,10 @@ alias gch='git changes'
 
 alias cop='dirtycop --branch'
 
-alias up='gco master && gpom && bi && rake db:migrate db:test:clone'
-
 alias fos='bundle exec spring stop'
 
 alias vi='vim'
 alias v='vi'
-
-alias va='cd ~/vagrant/; if ! vagrant ssh 2>/dev/null; then vagrant up; vagrant ssh; fi'
 
 alias gf='fg'
 
