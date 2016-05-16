@@ -37,6 +37,8 @@ alias gr='git rebase'
 alias grm='git rebase master'
 alias gch='git changes'
 
+alias cop='dirtycop --branch'
+
 alias up='gco master && gpom && bi && rake db:migrate db:test:clone'
 
 alias fos='bundle exec spring stop'
