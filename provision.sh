@@ -124,6 +124,10 @@ link_dotfiles() {
   ln -s ~/.config/zsh/zshrc ~/.zshrc
   ln -s ~/.config/latex/latexmkrc ~/.latexmkrc
 
+  mkdir -p ~/.gnupg
+  ln -s ~/.config/gpg/gpg.conf ~/.gnupg/gpg.conf
+  ln -s ~/.config/gpg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+
   mkdir -p ~/.subversion
   ln -s ~/.config/svn/config ~/.subversion/config
 }

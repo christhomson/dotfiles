@@ -66,3 +66,10 @@ export NVM_DIR="/Users/chris/.nvm"
 if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
   source /opt/dev/dev.sh
 fi
+
+[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
+if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+  export GPG_AGENT_INFO
+else
+  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info --pinentry-program /usr/local/bin/pinentry-mac )
+fi
