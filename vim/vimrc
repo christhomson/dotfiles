@@ -115,8 +115,8 @@ Bundle 'tmhedberg/matchit'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'janx/vim-rubytest'
 
-let g:rubytest_cmd_test = "bundle exec spring testunit %p"
-let g:rubytest_cmd_testcase = "bundle exec spring testunit %p -n '/%c/'"
+let g:rubytest_cmd_test = "ruby %p"
+let g:rubytest_cmd_testcase = "ruby -Itest %p -n '/%c/'"
 
 " Easily rename files.
 Bundle 'vim-scripts/Rename2'
@@ -176,6 +176,7 @@ set laststatus=2                  " Show the status line all the time
 set expandtab                     " Use spaces for tabs.
 set shiftwidth=2
 set softtabstop=2                 " 2 spaces is a tab.
+set colorcolumn=120
 set updatetime=750
 set autoread
 set cursorline
