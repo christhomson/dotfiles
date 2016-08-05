@@ -75,6 +75,7 @@ Bundle 'ervandew/supertab'
 " Syntax checking on save.
 Bundle 'scrooloose/syntastic'
 let g:syntastic_java_javac_config_file_enabled = 1
+let g:syntastic_ruby_checkers = ["mri", "rubocop"]
 
 " Fancy status line.
 " You may need to install the patched font from
