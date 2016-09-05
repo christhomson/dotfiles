@@ -15,8 +15,6 @@ if [ `uname`="Darwin" ]; then
   antigen-bundle sublime
 fi
 
-[ -f $ZSH/machine.zsh ] && source $ZSH/machine.zsh
-
 antigen-bundle zsh-users/zsh-autosuggestions
 antigen-bundle zsh-users/zsh-syntax-highlighting
 antigen-theme $ZSH/themes/juanghurtado.zsh-theme

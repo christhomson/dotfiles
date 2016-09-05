@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-pushd ~/.config
-git pull
-./provision.sh
-popd
-
-echo "Dotfiles updated and reprovisioned."
