@@ -103,6 +103,8 @@ function! FindCurrentSymbolInProject()
 endfunction
 nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
+Bundle 'pangloss/vim-javascript'
+
 " Ruby stuff.
 Bundle 'tpope/vim-rails'
 Bundle 'tmhedberg/matchit'
