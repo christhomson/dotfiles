@@ -71,3 +71,5 @@ if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
 else
   eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info --pinentry-program /usr/local/bin/pinentry-mac )
 fi
+
+export HEROKU_ORGANIZATION="shopify"
