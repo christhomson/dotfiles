@@ -44,6 +44,8 @@ alias cop='dirtycop --branch'
 
 alias fos='bundle exec spring stop'
 
+alias sso='heroku login --sso'
+
 alias vi='vim'
 alias v='vi'
 
