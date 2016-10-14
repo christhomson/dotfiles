@@ -205,6 +205,8 @@ nnoremap <silent><S-Tab> :bp<CR>
 nnoremap <silent><Leader>d :bd<CR>
 nnoremap <silent>U :redo<CR>
 
+nnoremap <leader>deb orequire 'byebug'; byebug<esc>
+
 " Automatically reload changes you make to .vimrc.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 autocmd BufWritePost ~/.config/vimrc source ~/.vimrc
