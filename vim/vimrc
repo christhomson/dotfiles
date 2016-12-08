@@ -106,6 +106,7 @@ nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 Bundle 'pangloss/vim-javascript'
 
 " Ruby stuff.
+Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
 Bundle 'tmhedberg/matchit'
 Bundle 'ecomba/vim-ruby-refactoring'

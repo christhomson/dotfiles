@@ -1,2 +1,3 @@
 #!/bin/sh
-ctags -R --languages=ruby --exclude=.git --exclude=log .
+gem ctags || (gem install gem-ctags && gem ctags)
+ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp .
