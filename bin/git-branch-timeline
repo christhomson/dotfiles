@@ -2,7 +2,7 @@
 
 # This is from https://github.com/benhoskings/dot-files/blob/master/files/bin/gbrt.
 
-def format_commit_info timestamp, time_desc, ref, short_ref, message, ref_name
+def format_commit_info(timestamp, time_desc, ref, short_ref, message, ref_name)
   [
     "#{timestamp.strftime("%y %b %d")}, #{timestamp.strftime("%l:%M%p").downcase}",
     "(#{time_desc})",
@@ -13,7 +13,7 @@ def format_commit_info timestamp, time_desc, ref, short_ref, message, ref_name
   ]
 end
 
-def render_commit_info timestamp, time_desc, ref, short_ref, message, ref_name, merged
+def render_commit_info(timestamp, time_desc, ref, short_ref, message, ref_name, merged)
   [
     timestamp,
     time_desc,
@@ -31,7 +31,7 @@ end
   [Time.at(timestamp.to_i)].concat(rest)
 }.sort_by {|(timestamp, *rest)|
   timestamp
-}.reverse.map {|commit_info|
+}.map {|commit_info|
   format_commit_info(*commit_info)
 }.transpose.map {|column|
   max_col_length = column.sort_by {|i| i.length }.last.length
