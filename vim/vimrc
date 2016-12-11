@@ -110,10 +110,22 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
 Bundle 'tmhedberg/matchit'
 Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'janx/vim-rubytest'
 
-let g:rubytest_cmd_test = "ruby %p"
-let g:rubytest_cmd_testcase = "ruby -Itest %p -n '/%c/'"
+" Asynchronous test execution.
+Bundle 'skywind3000/asyncrun.vim'
+Bundle 'janko-m/vim-test'
+let test#strategy = "asyncrun"
+let g:asyncrun_trim = 1
+autocmd User AsyncRunPre call OpenQuickfixAndSwitchBack()
+
+function OpenQuickfixAndSwitchBack()
+  copen
+  wincmd p
+endfunction
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>lt :TestLast<CR>
 
 " Easily rename files.
 Bundle 'vim-scripts/Rename2'
