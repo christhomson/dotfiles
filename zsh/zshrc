@@ -73,3 +73,5 @@ else
 fi
 
 export HEROKU_ORGANIZATION="shopify"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
