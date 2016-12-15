@@ -126,6 +126,7 @@ endfunction
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>lt :TestLast<CR>
+nmap <silent> <leader>st :TestSuite<CR>
 
 " Easily rename files.
 Bundle 'vim-scripts/Rename2'
