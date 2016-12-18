@@ -50,6 +50,8 @@ nnoremap <leader>gd :Gdiff<CR>
 Bundle 'scrooloose/nerdtree'
 let g:NERDTreeWinSize = 40
 
+Bundle 'DataWraith/auto_mkdir'
+
 " Fuzzy file matcher.
 " Looks to ancestor directories to find the source control root.
 Bundle 'ctrlpvim/ctrlp.vim'
