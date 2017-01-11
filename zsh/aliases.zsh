@@ -9,7 +9,9 @@ alias bi='bundle check || bundle install --jobs 4'
 alias bo='bundle open'
 alias bu='bundle update'
 alias t='bundle exec spring testunit'
-alias ss='script/server'
+
+alias s='dev server'
+alias u='dev up'
 
 alias dup='dev update && dev up'
 alias dc='dev console'
