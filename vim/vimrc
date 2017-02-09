@@ -223,6 +223,10 @@ nnoremap <silent>U :redo<CR>
 
 nnoremap <leader>deb orequire 'byebug'; byebug<esc>
 
+" Alias :Q and :W to quitting and saving, respectively.
+:command! -bar -bang Q quit<bang>
+:command! -bar -bang W write<bang>
+
 " Automatically reload changes you make to .vimrc.
 autocmd BufWritePost ~/.vimrc source ~/.vimrc
 autocmd BufWritePost ~/.config/vimrc source ~/.vimrc
