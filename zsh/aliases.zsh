@@ -47,6 +47,8 @@ alias cop='dirtycop --branch'
 alias fos='bundle exec spring stop'
 
 alias sso='heroku login --sso'
+alias hc='heroku run rails console -a '
+alias hconfig='heroku config -a '
 
 alias vi='vim'
 alias v='vi'
