@@ -33,6 +33,7 @@
 	changes = !git log --pretty=oneline -- "$@" | cut -f1 -d' ' | xargs -I {} git show {} -- "$@"
 	ctags = !.git/hooks/ctags
 	when-added = !git --no-pager log --follow --diff-filter=A
+	fix = "!f() { ${EDITOR} `git diff --name-only | uniq`; }; f"
 [push]
 	default = current
 [difftool]
