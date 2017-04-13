@@ -13,6 +13,6 @@ fp() {
   then
     echo "You just tried to force push master - are you sure that's what you want?"
   else
-    git push origin +$BRANCH_NAME
+    git push origin $BRANCH_NAME --force-with-lease
   fi
 }
