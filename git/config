@@ -36,6 +36,7 @@
 	when-added = !git --no-pager log --follow --diff-filter=A
 	fix = "!f() { ${EDITOR} `git diff --name-only | uniq`; }; f"
 	wd=diff --word-diff
+	cl=log --graph --all --decorate --stat --date=iso
 [push]
 	default = current
 [difftool]
