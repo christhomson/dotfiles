@@ -222,6 +222,7 @@ nnoremap <silent><Leader>d :bd<CR>
 nnoremap <silent>U :redo<CR>
 
 nnoremap <leader>deb orequire 'byebug'; byebug<esc>
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Alias :Q and :W to quitting and saving, respectively.
 :command! -bar -bang Q quit<bang>
