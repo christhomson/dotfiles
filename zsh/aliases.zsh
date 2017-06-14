@@ -13,6 +13,7 @@ alias t='bundle exec spring testunit'
 alias s='dev server'
 alias u='dev up'
 
+alias dop='dev open pr'
 alias dup='dev update && dev up'
 alias dc='dev console'
 alias ds='dev server'
