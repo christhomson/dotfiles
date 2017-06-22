@@ -78,6 +78,8 @@ let g:syntastic_java_javac_config_file_enabled = 1
 Bundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
+Bundle 'mhinz/vim-startify'
+
 " Find in project.
 if executable('ag')
   Bundle 'rking/ag.vim'
