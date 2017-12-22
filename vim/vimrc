@@ -55,6 +55,7 @@ Bundle 'DataWraith/auto_mkdir'
 
 " Fuzzy file matcher.
 Bundle 'junegunn/fzf.vim'
+set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 map <C-p> :Files<CR>
