@@ -41,6 +41,7 @@ map <S-E> <Plug>CamelCaseMotion_e
 
 " Git integration.
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rhubarb'
 Bundle 'airblade/vim-gitgutter'
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gs :Gstatus<CR>
