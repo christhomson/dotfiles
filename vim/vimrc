@@ -53,15 +53,12 @@ let g:NERDTreeWinSize = 40
 Bundle 'DataWraith/auto_mkdir'
 
 " Fuzzy file matcher.
-" Looks to ancestor directories to find the source control root.
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'iurifq/ctrlp-rails.vim'
-Bundle 'JazzCore/ctrlp-cmatcher'
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-nnoremap <C-K> :CtrlPControllers<CR>
-nnoremap <C-L> :CtrlPModels<CR>
-nnoremap <C-y> :CtrlPTag<CR>
+Bundle 'junegunn/fzf.vim'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+map <C-p> :Files<CR>
+map <C-o> :Tags<CR>
+map <C-l> :Lines<CR>
 
 " Autocompletion.
 Bundle 'Shougo/neocomplcache.vim'
@@ -106,6 +103,8 @@ endfunction
 nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
 Bundle 'pangloss/vim-javascript'
+
+Bundle 'tomlion/vim-solidity'
 
 " Ruby stuff.
 Bundle 'tpope/vim-bundler'
@@ -165,6 +164,8 @@ vmap <leader>json !python -m json.tool<CR>
 
 " Basic proofreading
 Bundle 'reedes/vim-wordy'
+
+Bundle 'craigemery/vim-autotag'
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
