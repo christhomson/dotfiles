@@ -2,9 +2,7 @@ scriptencoding utf-8
 set encoding=utf-8
 set nocompatible                  " Must come first because it changes other options.
 
-if $SHELL =~ 'bin/fish'
-  set shell=/bin/bash
-endif
+set shell=/bin/bash
 
 let mapleader = ","
 
@@ -41,7 +39,6 @@ map <S-E> <Plug>CamelCaseMotion_e
 
 " Git integration.
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rhubarb'
 Bundle 'airblade/vim-gitgutter'
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gs :Gstatus<CR>
@@ -141,8 +138,9 @@ let g:EasyGrepFilesToExclude=".svn,.git,tags,*.o,*.obj,*~,*sass-cache*,*DS_Store
 Bundle 'tomtom/tcomment_vim'
 map <leader>gc :TComment<CR>
 
-Bundle 'chriskempson/vim-tomorrow-theme'
-colorscheme Tomorrow-Night-Eighties
+Bundle 'joshdick/onedark.vim'
+color onedark
+set termguicolors
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
