@@ -39,6 +39,7 @@ map <S-E> <Plug>CamelCaseMotion_e
 
 " Git integration.
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rhubarb'
 Bundle 'airblade/vim-gitgutter'
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gs :Gstatus<CR>
@@ -102,6 +103,7 @@ endfunction
 nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
 Bundle 'pangloss/vim-javascript'
+Bundle 'leafgarland/typescript-vim'
 
 Bundle 'tomlion/vim-solidity'
 
