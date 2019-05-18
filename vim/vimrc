@@ -136,6 +136,7 @@ Bundle 'vim-scripts/Rename2'
 Bundle 'dkprice/vim-easygrep'
 let g:EasyGrepRoot = "repository"
 let g:EasyGrepFilesToExclude=".svn,.git,tags,*.o,*.obj,*~,*sass-cache*,*DS_Store*,*/log/**,*/tmp/**,*.png,*.jpg,*.gif,*node_modules*"
+let g:EasyGrepSearchCurrentBufferOnly=0
 
 Bundle 'tomtom/tcomment_vim'
 map <leader>gc :TComment<CR>
@@ -178,7 +179,6 @@ set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 set number                        " Show line numbers.
-set relativenumber                " Use relative line numbers.
 set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
@@ -198,7 +198,6 @@ set softtabstop=2                 " 2 spaces is a tab.
 set colorcolumn=120
 set updatetime=750
 set autoread
-set cursorline
 set list listchars=tab:»·,trail:· " Show extra whitespace.
 set nofoldenable
 set ttyfast
@@ -249,6 +248,8 @@ autocmd FileType go setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 set tw=0
+
+ab dael deal
 
 " inoremap  <Up>     <NOP>
 " inoremap  <Down>   <NOP>
