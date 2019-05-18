@@ -60,7 +60,5 @@
 [status]
 	short = 1
 	branch = 1
-[commit]
-	gpgsign = true
 [interactive]
 	singlekey = true
