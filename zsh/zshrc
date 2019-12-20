@@ -5,20 +5,20 @@ export LOCATION="anywhere"
 
 source $ZSH/antigen/antigen.zsh
 
-antigen-use oh-my-zsh
+antigen use oh-my-zsh
 
-antigen-bundle gitfast
+antigen bundle gitfast
 
 if [ `uname`="Darwin" ]; then
   export OSX=1
-  antigen-bundle osx
-  antigen-bundle sublime
+  antigen bundle osx
+  antigen bundle sublime
 fi
 
-antigen-bundle zsh-users/zsh-autosuggestions
-antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-theme $ZSH/themes/juanghurtado.zsh-theme
-antigen-apply
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme juanghurtado
+antigen apply
 
 # Don't annoy me as much as you'd like to.
 export UPDATE_ZSH_DAYS=30

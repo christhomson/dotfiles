@@ -80,7 +80,7 @@ if executable('ag')
   Bundle 'rking/ag.vim'
   nnoremap <C-a> :Ag 
   set grepprg=ag\ --nogroup\ --nocolor
-  let g:ag_prg="ag --column --nogroup --noheading --smart-case --ignore '*.log' --ignore 'tags'"
+  let g:ag_prg="ag --column --nogroup --noheading --smart-case --ignore '*.log' --ignore 'tags' --ignore 'sorbet'"
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 elseif executable('ack')
@@ -104,6 +104,7 @@ nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
 Bundle 'pangloss/vim-javascript'
 Bundle 'leafgarland/typescript-vim'
+Bundle 'peitalin/vim-jsx-typescript'
 
 Bundle 'tomlion/vim-solidity'
 
@@ -142,8 +143,8 @@ Bundle 'tomtom/tcomment_vim'
 map <leader>gc :TComment<CR>
 
 Bundle 'joshdick/onedark.vim'
-color onedark
-set termguicolors
+Bundle 'chriskempson/vim-tomorrow-theme'
+color Tomorrow-Night-Eighties
 
 " Language support.
 Bundle 'plasticboy/vim-markdown'
