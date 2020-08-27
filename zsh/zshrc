@@ -17,7 +17,7 @@ fi
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme juanghurtado
+antigen bundle woefe/git-prompt.zsh
 antigen apply
 
 # Don't annoy me as much as you'd like to.
@@ -67,6 +67,9 @@ fi
 export PATH="$HOME/.yarn/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.antigen/bundles/woefe/git-prompt.zsh/examples/rprompt.zsh
+export ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_no_bold[green]%}"
 
 export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 export PATH=$GOPATH/bin:$PATH
