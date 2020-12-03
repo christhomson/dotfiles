@@ -77,3 +77,4 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+if [ -e /Users/chris/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/chris/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
