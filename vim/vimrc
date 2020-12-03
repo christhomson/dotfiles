@@ -6,53 +6,58 @@ set shell=/bin/bash
 
 let mapleader = ","
 
-" VUNDLE initialization
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Bundle 'gmarik/vundle'
+call plug#begin()
+
+Plug 'gmarik/vundle'
 
 " Automatically close quotes, brackets, etc.
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-endwise'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-endwise'
 
 " Snippets.
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
-Bundle 'christhomson/vim-snippets'
+Plug 'christhomson/vim-snippets'
 
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-surround'
-Bundle 'bronson/vim-trailing-whitespace'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'bronson/vim-trailing-whitespace'
 let g:extra_whitespace_ignored_filetypes = ['gitcommit']
 
-Bundle 'junegunn/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 au VimEnter * RainbowParentheses
 
-Bundle 'bkad/CamelCaseMotion'
+Plug 'bkad/CamelCaseMotion'
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
 
 " Git integration.
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rhubarb'
-Bundle 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
 " File tree explorer
-Bundle 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 let g:NERDTreeWinSize = 40
 
-Bundle 'DataWraith/auto_mkdir'
+Plug 'DataWraith/auto_mkdir'
 
 " Fuzzy file matcher.
-Bundle 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag --ignore "sorbet" -g ""'
 
@@ -61,30 +66,30 @@ map <C-o> :Tags<CR>
 map <C-l> :Lines<CR>
 
 " Autocompletion.
-Bundle 'Shougo/neocomplcache.vim'
+Plug 'Shougo/neocomplcache.vim'
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_force_overwrite_completefunc=1
 
 " Syntax checking on save.
-Bundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_java_javac_config_file_enabled = 1
 
 " Fancy status line.
 " You may need to install the patched font from
 " https://github.com/Lokaltog/powerline-fonts
-Bundle 'bling/vim-airline'
+Plug 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 
 " Find in project.
 if executable('ag')
-  Bundle 'rking/ag.vim'
+  Plug 'rking/ag.vim'
   nnoremap <C-a> :Ag 
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ag_prg="ag --column --nogroup --noheading --smart-case --ignore '*.log' --ignore 'tags' --ignore 'sorbet' --ignore '*.rbi'"
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 elseif executable('ack')
-  Bundle 'mileszs/ack.vim'
+  Plug 'mileszs/ack.vim'
   nnoremap <C-a> :Ack 
 endif
 
@@ -103,23 +108,23 @@ endfunction
 nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
 " JavaScript
-Bundle 'pangloss/vim-javascript'
-Bundle 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 
-Bundle 'HerringtonDarkholme/yats.vim'
-Bundle 'MaxMEllon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
-Bundle 'tomlion/vim-solidity'
+Plug 'tomlion/vim-solidity'
 
 " Ruby stuff.
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rails'
-Bundle 'tmhedberg/matchit'
-Bundle 'ecomba/vim-ruby-refactoring'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'tmhedberg/matchit'
+Plug 'ecomba/vim-ruby-refactoring'
 
 " Asynchronous test execution.
-Bundle 'skywind3000/asyncrun.vim'
-Bundle 'janko-m/vim-test'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'janko-m/vim-test'
 let test#strategy = "asyncrun"
 let g:asyncrun_trim = 1
 autocmd User AsyncRunPre call OpenQuickfixAndSwitchBack()
@@ -135,39 +140,42 @@ nmap <silent> <leader>lt :TestLast<CR>
 nmap <silent> <leader>st :TestSuite<CR>
 
 " Easily rename files.
-Bundle 'vim-scripts/Rename2'
+Plug 'vim-scripts/Rename2'
 
-Bundle 'dkprice/vim-easygrep'
+Plug 'dkprice/vim-easygrep'
 let g:EasyGrepRoot = "repository"
 let g:EasyGrepFilesToExclude=".svn,.git,tags,*.o,*.obj,*~,*sass-cache*,*DS_Store*,*/log/**,*/tmp/**,*.png,*.jpg,*.gif,*node_modules*"
 let g:EasyGrepSearchCurrentBufferOnly=0
 
-Bundle 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 map <leader>gc :TComment<CR>
 
-Bundle 'joshdick/onedark.vim'
-Bundle 'chriskempson/vim-tomorrow-theme'
-color Tomorrow-Night-Eighties
+Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/vim-tomorrow-theme', { 'as': 'Tomorrow-Night-Eighties' }
 
 " Language support.
-Bundle 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'AndrewRadev/vim-eco'
+Plug 'kchmck/vim-coffee-script'
+Plug 'AndrewRadev/vim-eco'
 au BufNewFile,BufRead *.coffee set filetype=coffee
 au BufNewFile,BufRead *.eco set filetype=eco
 
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'mustache/vim-mustache-handlebars'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'mustache/vim-mustache-handlebars'
 
-Bundle 'jnwhiteh/vim-golang'
+Plug 'jnwhiteh/vim-golang'
 
 vmap <leader>json !python -m json.tool<CR>
 
 " Basic proofreading
-Bundle 'reedes/vim-wordy'
+Plug 'reedes/vim-wordy'
+
+call plug#end()
+
+color Tomorrow-Night-Eighties
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -259,5 +267,3 @@ ab dael deal
 " noremap   <Left>   <NOP>
 " noremap   <Right>  <NOP>
 
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
