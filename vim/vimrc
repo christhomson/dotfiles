@@ -102,8 +102,12 @@ function! FindCurrentSymbolInProject()
 endfunction
 nnoremap <C-f> :FindCurrentSymbolInProject<cr>
 
+" JavaScript
 Bundle 'pangloss/vim-javascript'
 Bundle 'leafgarland/typescript-vim'
+
+Bundle 'HerringtonDarkholme/yats.vim'
+Bundle 'MaxMEllon/vim-jsx-pretty'
 
 Bundle 'tomlion/vim-solidity'
 
