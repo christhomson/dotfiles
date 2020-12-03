@@ -1,4 +1,12 @@
+configstore
+dev
 fish/fish_history
 fish/fishd.*
+gcloud
+nix
+nixpkgs
+shadowenv
+wireshark
 zsh/machine.zsh
 zsh/cache/
+zsh/plugins
