@@ -66,9 +66,9 @@ map <C-o> :Tags<CR>
 map <C-l> :Lines<CR>
 
 " Autocompletion.
-Plug 'Shougo/neocomplcache.vim'
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_force_overwrite_completefunc=1
+" Plug 'Shougo/neocomplcache.vim'
+" let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_force_overwrite_completefunc=1
 
 " Syntax checking on save.
 Plug 'scrooloose/syntastic'
@@ -88,17 +88,12 @@ if executable('ag')
   let g:ag_prg="ag --column --nogroup --noheading --smart-case --ignore '*.log' --ignore 'tags' --ignore 'sorbet' --ignore '*.rbi'"
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
-elseif executable('ack')
-  Plug 'mileszs/ack.vim'
-  nnoremap <C-a> :Ack 
 endif
 
 command! FindCurrentSymbolInProject call FindCurrentSymbolInProject()
 function! FindCurrentSymbolInProject()
   if executable('ag')
     let l:currentWordCommand = "Ag"
-  elseif executable('ack')
-    let l:currentWordCommand = "Ack"
   else
     return
   endif
@@ -266,4 +261,3 @@ ab dael deal
 " noremap   <Down>   <NOP>
 " noremap   <Left>   <NOP>
 " noremap   <Right>  <NOP>
-
