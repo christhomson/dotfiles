@@ -21,9 +21,6 @@ Plug 'tpope/vim-endwise'
 " Snippets.
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-
-Plug 'christhomson/vim-snippets'
 
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
