@@ -13,3 +13,5 @@ fi
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall
 
 sudo apt-get install -y cloc ctags fzf silversearcher-ag tree
+
+antigen apply
