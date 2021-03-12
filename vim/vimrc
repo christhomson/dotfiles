@@ -14,8 +14,6 @@ endif
 
 call plug#begin()
 
-Plug 'gmarik/vundle'
-
 " Automatically close quotes, brackets, etc.
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-endwise'
