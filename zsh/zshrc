@@ -1,9 +1,9 @@
-ZSH=$HOME/.config/zsh
+ZSH=$HOME/dotfiles/zsh
 export EDITOR=vim
 
 export LOCATION="anywhere"
 
-source $ZSH/antigen/antigen.zsh
+source $ZSH/antigen.zsh
 
 antigen use oh-my-zsh
 
