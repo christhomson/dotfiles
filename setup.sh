@@ -6,4 +6,4 @@ ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall
 
-sudo apt-get install cloc ctags fzf silversearcher-ag tree
+sudo apt-get install -y cloc ctags fzf silversearcher-ag tree
