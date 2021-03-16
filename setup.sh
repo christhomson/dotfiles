@@ -8,8 +8,9 @@ ln -sf ~/dotfiles/git/config ~/.gitconfig
 if [ $SPIN ]; then
   git config --global user.name "Chris Thomson"
   git config --global user.email "chris.thomson@shopify.com"
+
+  sudo apt-get install -y cloc ctags fzf silversearcher-ag tree
 fi
 
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall
 
-sudo apt-get install -y cloc ctags fzf silversearcher-ag tree
