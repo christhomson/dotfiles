@@ -58,10 +58,6 @@ if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
   source /opt/dev/dev.sh
 fi
 
-if [[ -f /usr/local/share/chruby/chruby.sh ]]; then
-  source /usr/local/share/chruby/chruby.sh
-fi
-
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -73,7 +69,6 @@ source ~/.antigen/bundles/woefe/git-prompt.zsh/examples/rprompt.zsh
 export ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_no_bold[green]%}"
 
 export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
-export PATH=$GOPATH/bin:$PATH
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
