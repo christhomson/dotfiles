@@ -14,3 +14,4 @@ fi
 
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall
 
+zsh
