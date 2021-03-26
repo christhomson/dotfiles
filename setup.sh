@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/ruby/irbrc ~/.irbrc
@@ -14,4 +14,4 @@ fi
 
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall
 
-zsh
+source ~/.zshrc
