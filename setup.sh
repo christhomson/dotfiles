@@ -9,7 +9,7 @@ if [ $SPIN ]; then
   git config --global user.name "Chris Thomson"
   git config --global user.email "chris.thomson@shopify.com"
 
-  sudo apt-get install -y cloc ctags fzf silversearcher-ag tree
+  sudo apt-get install -y cloc ctags fzf silversearcher-ag tree libterm-readkey-perl
 fi
 
 if [ $OSX ]; then
