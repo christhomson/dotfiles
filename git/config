@@ -1,6 +1,6 @@
 [core]
 	editor = vim
-	excludesfile = ~/.config/git/ignore
+	excludesfile = ~/dotfiles/git/ignore
 	quotepath = false
 	autocrlf = input
 	commitGraph = true
@@ -52,7 +52,7 @@
 [log]
 	abbrevCommit = true
 [init]
-	templatedir = ~/.config/git/templates
+	templatedir = ~/dotfiles/git/templates
 [status]
 	short = 1
 	branch = 1
