@@ -12,5 +12,9 @@ if [ $SPIN ]; then
   sudo apt-get install -y cloc ctags fzf silversearcher-ag tree
 fi
 
+if [ $OSX ]; then
+  brew install mosh
+fi
+
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall
 
