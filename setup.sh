@@ -4,6 +4,7 @@ ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/ruby/irbrc ~/.irbrc
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -sf ~/dotfiles/git/config ~/.gitconfig
+ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 if [ $SPIN ]; then
   git config --global user.name "Chris Thomson"
