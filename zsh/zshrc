@@ -11,7 +11,7 @@ antigen bundle gitfast
 
 if [ `uname`="Darwin" ]; then
   export OSX=1
-  antigen bundle osx
+  antigen bundle macos
   antigen bundle sublime
 fi
 
