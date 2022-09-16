@@ -45,6 +45,9 @@ alias gr='git rebase'
 alias grm='git rebase master'
 alias gch='git changes'
 
+alias yi='yarn install'
+alias yk='yarn ketchup'
+
 alias cop='dirtycop --branch'
 
 alias fos='bundle exec spring stop'
