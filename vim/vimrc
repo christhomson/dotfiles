@@ -77,10 +77,10 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Find in project.
 if executable('ag')
-  Plug 'rking/ag.vim'
-  nnoremap <C-a> :Ag 
+  Plug 'mileszs/ack.vim'
+  nnoremap <C-a> :Ack 
   set grepprg=ag\ --nogroup\ --nocolor
-  let g:ag_prg="ag --column --nogroup --noheading --smart-case --ignore '*.log' --ignore 'tags' --ignore 'sorbet' --ignore '*.rbi'"
+  let g:ackprg = "ag --column --nogroup --noheading --smart-case --ignore '*.log' --ignore 'tags' --ignore 'sorbet' --ignore '*.rbi' --vimgrep"
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
@@ -88,7 +88,7 @@ endif
 command! FindCurrentSymbolInProject call FindCurrentSymbolInProject()
 function! FindCurrentSymbolInProject()
   if executable('ag')
-    let l:currentWordCommand = "Ag"
+    let l:currentWordCommand = "Ack"
   else
     return
   endif

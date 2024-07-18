@@ -48,16 +48,6 @@ setopt nohistverify
 
 export PRY=1
 
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
-
-export NVM_DIR="/Users/chris/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# load dev, but only if present and the shell is interactive
-if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
-  source /opt/dev/dev.sh
-fi
-
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -74,3 +64,24 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 if [ -e /Users/chris/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/chris/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore-dir .git --ignore-dir node_modules -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
+_fzd_compgen_path() {
+  ag --hidden --ignore-dir .git --ignore-dir node_modules -g ""
+}
+
+eval "$(direnv hook $SHELL)"
+
+source ~/.aws_rc
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+export PATH="/Users/cthomson/.local/bin:$PATH"
+
+# export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+# export LDFLAGS=-L/usr/local/opt/imagemagick@6/lib
+# export CPPFLAGS=-I/usr/local/opt/imagemagick@6/include
+# export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
