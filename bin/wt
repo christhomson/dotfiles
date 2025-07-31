@@ -1,0 +1,199 @@
+#!/bin/bash
+
+# Generated with Claude Code (sorry about the mess)
+# wt - Create a new git worktree and copy ignored files which may contain secrets and other config we don't want to commit but do want available in the new worktree.
+# Opens Cursor afterwards with the new worktree open, in a layout I enjoy using.
+# Usage: wt <branch-name>
+# Assumes you have a directory containing a bare git repo, with subdirectories for each worktree.
+
+set -e
+
+# Check if branch name is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: wt <branch-name>"
+    echo "Creates a new git worktree from the default branch and copies ignored files"
+    echo "Works from within any worktree or from the worktrees root directory"
+    exit 1
+fi
+
+BRANCH_NAME="$1"
+
+# Function to find the worktrees root directory
+find_worktree_root() {
+    local current_dir="$PWD"
+
+    # First, try to find if we're in a worktree
+    if git rev-parse --is-inside-work-tree &>/dev/null; then
+        # We're in a git repo, get the worktree root
+        local git_common_dir=$(git rev-parse --git-common-dir)
+        if [[ "$git_common_dir" == *".git/worktrees"* ]]; then
+            # We're in a worktree, find the bare repo
+            local bare_repo=$(dirname $(dirname "$git_common_dir"))
+            echo "$bare_repo"
+            return 0
+        elif [[ "$git_common_dir" == ".git" ]] && git rev-parse --is-bare-repository &>/dev/null; then
+            # We're in a bare repository
+            echo "$current_dir"
+            return 0
+        fi
+    fi
+
+    # Check if current directory contains worktrees (look for .bare directory or is a bare repo)
+    if [ -d "$current_dir/.bare" ]; then
+        echo "$current_dir"
+        return 0
+    fi
+
+    # Check if current directory is a bare repository
+    if [ -d "$current_dir/.git" ] && git -C "$current_dir" rev-parse --is-bare-repository &>/dev/null; then
+        echo "$current_dir"
+        return 0
+    fi
+
+    # Walk up the directory tree looking for a bare repo or .bare directory
+    local check_dir="$current_dir"
+    while [ "$check_dir" != "/" ]; do
+        if [ -d "$check_dir/.bare" ] || ([ -d "$check_dir/.git" ] && git -C "$check_dir" rev-parse --is-bare-repository &>/dev/null 2>&1); then
+            echo "$check_dir"
+            return 0
+        fi
+        check_dir=$(dirname "$check_dir")
+    done
+
+    echo "Error: Could not find worktrees root directory. Make sure you're in or under a directory with git worktrees." >&2
+    exit 1
+}
+
+# Find the worktrees root
+WORKTREE_ROOT=$(find_worktree_root)
+echo "Using worktrees root: $WORKTREE_ROOT"
+
+# Change to worktrees root for all git operations
+cd "$WORKTREE_ROOT"
+
+# Check if the branch already exists
+if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
+    echo "Error: Branch '$BRANCH_NAME' already exists"
+    exit 1
+fi
+
+# Check if worktree directory already exists
+NEW_WORKTREE_DIR="$WORKTREE_ROOT/$BRANCH_NAME"
+if [ -d "$NEW_WORKTREE_DIR" ]; then
+    echo "Error: Directory '$NEW_WORKTREE_DIR' already exists"
+    exit 1
+fi
+
+# Determine the default branch (main, master, etc.)
+DEFAULT_BRANCH=""
+
+# Try multiple methods to find the default branch
+if [ -z "$DEFAULT_BRANCH" ]; then
+    # Method 1: Try symbolic ref
+    DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || true)
+fi
+
+if [ -z "$DEFAULT_BRANCH" ]; then
+    # Method 2: Look for common branch names that exist
+    for branch in "main" "master" "develop"; do
+        if git show-ref --verify --quiet "refs/heads/$branch" 2>/dev/null; then
+            DEFAULT_BRANCH="$branch"
+            break
+        fi
+    done
+fi
+
+if [ -z "$DEFAULT_BRANCH" ]; then
+    # Method 3: Use the first branch we can find
+    DEFAULT_BRANCH=$(git branch --format='%(refname:short)' | head -n1 || echo "main")
+fi
+
+# Fallback to main if still empty
+if [ -z "$DEFAULT_BRANCH" ]; then
+    DEFAULT_BRANCH="main"
+fi
+
+# Create the new worktree from the default branch
+echo "Creating new worktree '$BRANCH_NAME' from $DEFAULT_BRANCH..."
+git worktree add -b "$BRANCH_NAME" "$NEW_WORKTREE_DIR" "$DEFAULT_BRANCH"
+
+# Find and copy ignored files from default branch worktree (excluding tmp/)
+# First try the detected default branch, then common alternatives
+MAIN_WORKTREE=""
+for branch_name in "$DEFAULT_BRANCH" "main" "master" "develop"; do
+    potential_worktree="$WORKTREE_ROOT/$branch_name"
+    if [ -d "$potential_worktree" ]; then
+        MAIN_WORKTREE="$potential_worktree"
+        echo "Found source worktree: $branch_name"
+        break
+    fi
+done
+
+if [ -n "$MAIN_WORKTREE" ]; then
+    echo "Copying ignored files from $MAIN_WORKTREE..."
+    cd "$MAIN_WORKTREE"
+
+    # Get list of ignored files, excluding tmp/ directory
+    IGNORED_FILES=$(git ls-files --others --ignored --exclude-standard | grep -v "^tmp/" || true)
+
+    if [ -n "$IGNORED_FILES" ]; then
+        # Copy each ignored file maintaining directory structure
+        echo "$IGNORED_FILES" | while IFS= read -r file; do
+            if [ -f "$file" ]; then
+                # Create target directory if it doesn't exist
+                target_dir="$NEW_WORKTREE_DIR/$(dirname "$file")"
+                mkdir -p "$target_dir"
+
+                # Copy the file
+                cp "$file" "$NEW_WORKTREE_DIR/$file"
+                echo "  Copied: $file"
+            fi
+        done
+        echo "Finished copying ignored files"
+    else
+        echo "No ignored files to copy"
+    fi
+else
+    echo "Warning: No main worktree found (looked for: main, master, develop)"
+    echo "Ignored files will not be copied"
+fi
+
+# Open in Cursor and set up layout
+echo "Opening new worktree in Cursor..."
+cursor "$NEW_WORKTREE_DIR"
+
+# Wait for Cursor to fully load, then set up the layout
+echo "Setting up terminal and Claude Code..."
+sleep 2
+
+# This is truly the dumbest way to configure the layout of Cursor, but it works.
+osascript <<EOF
+tell application "Cursor"
+    activate
+    delay 0.25
+
+    -- Close Cursor Chat sidebar (Cmd+L toggles it)
+    tell application "System Events"
+        keystroke "l" using {command down}
+        delay 0.25
+
+        -- Open terminal panel
+        keystroke "\`" using {control down}
+        delay 0.25
+
+        -- Launch Claude Code
+        keystroke "p" using {command down, shift down}
+        delay 0.25
+
+        repeat with char in "Run Claude Code"
+            keystroke char
+            delay 0.025
+        end repeat
+        delay 0.25
+        key code 36 -- Enter key
+        delay 0.25
+    end tell
+end tell
+EOF
+
+echo "✅ New worktree '$BRANCH_NAME' created successfully at $NEW_WORKTREE_DIR"

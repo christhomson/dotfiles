@@ -87,7 +87,7 @@ endif
 
 command! FindCurrentSymbolInProject call FindCurrentSymbolInProject()
 function! FindCurrentSymbolInProject()
-  if executable('ag')
+  if executable('ack')
     let l:currentWordCommand = "Ack"
   else
     return
