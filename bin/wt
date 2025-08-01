@@ -170,7 +170,7 @@ sleep 2
 osascript <<EOF
 tell application "Cursor"
     activate
-    delay 0.25
+    delay 1
 
     -- Close Cursor Chat sidebar (Cmd+L toggles it)
     tell application "System Events"
