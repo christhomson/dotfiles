@@ -64,6 +64,17 @@ find_worktree_root() {
     exit 1
 }
 
+# Function to check if a directory is a valid git worktree
+is_valid_worktree() {
+    local dir="$1"
+    if [ ! -d "$dir" ]; then
+        return 1
+    fi
+
+    # Check if it's in the worktree list
+    git worktree list | grep -q "$(realpath "$dir")" 2>/dev/null
+}
+
 # Find the worktrees root
 WORKTREE_ROOT=$(find_worktree_root)
 echo "Using worktrees root: $WORKTREE_ROOT"
@@ -71,17 +82,26 @@ echo "Using worktrees root: $WORKTREE_ROOT"
 # Change to worktrees root for all git operations
 cd "$WORKTREE_ROOT"
 
-# Check if the branch already exists
-if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
-    echo "Error: Branch '$BRANCH_NAME' already exists"
-    exit 1
-fi
-
 # Check if worktree directory already exists
 NEW_WORKTREE_DIR="$WORKTREE_ROOT/$BRANCH_NAME"
+WORKTREE_EXISTS=false
 if [ -d "$NEW_WORKTREE_DIR" ]; then
-    echo "Error: Directory '$NEW_WORKTREE_DIR' already exists"
-    exit 1
+    if is_valid_worktree "$NEW_WORKTREE_DIR"; then
+        echo "Worktree '$BRANCH_NAME' already exists, skipping creation..."
+        WORKTREE_EXISTS=true
+    else
+        echo "Error: Directory '$NEW_WORKTREE_DIR' exists but is not a valid worktree"
+        exit 1
+    fi
+fi
+
+# Check if the branch already exists (only error if worktree doesn't exist)
+if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
+    if [ "$WORKTREE_EXISTS" = false ]; then
+        echo "Error: Branch '$BRANCH_NAME' already exists but worktree directory does not exist"
+        echo "You may need to run: git worktree add '$NEW_WORKTREE_DIR' '$BRANCH_NAME'"
+        exit 1
+    fi
 fi
 
 # Determine the default branch (main, master, etc.)
@@ -113,49 +133,52 @@ if [ -z "$DEFAULT_BRANCH" ]; then
     DEFAULT_BRANCH="main"
 fi
 
-# Create the new worktree from the default branch
-echo "Creating new worktree '$BRANCH_NAME' from $DEFAULT_BRANCH..."
-git worktree add -b "$BRANCH_NAME" "$NEW_WORKTREE_DIR" "$DEFAULT_BRANCH"
+# Only create worktree if it doesn't already exist
+if [ "$WORKTREE_EXISTS" = false ]; then
+    # Create the new worktree from the default branch
+    echo "Creating new worktree '$BRANCH_NAME' from $DEFAULT_BRANCH..."
+    git worktree add -b "$BRANCH_NAME" "$NEW_WORKTREE_DIR" "$DEFAULT_BRANCH"
 
-# Find and copy ignored files from default branch worktree (excluding tmp/)
-# First try the detected default branch, then common alternatives
-MAIN_WORKTREE=""
-for branch_name in "$DEFAULT_BRANCH" "main" "master" "develop"; do
-    potential_worktree="$WORKTREE_ROOT/$branch_name"
-    if [ -d "$potential_worktree" ]; then
-        MAIN_WORKTREE="$potential_worktree"
-        echo "Found source worktree: $branch_name"
-        break
-    fi
-done
+    # Find and copy ignored files from default branch worktree (excluding tmp/)
+    # First try the detected default branch, then common alternatives
+    MAIN_WORKTREE=""
+    for branch_name in "$DEFAULT_BRANCH" "main" "master" "develop"; do
+        potential_worktree="$WORKTREE_ROOT/$branch_name"
+        if [ -d "$potential_worktree" ]; then
+            MAIN_WORKTREE="$potential_worktree"
+            echo "Found source worktree: $branch_name"
+            break
+        fi
+    done
 
-if [ -n "$MAIN_WORKTREE" ]; then
-    echo "Copying ignored files from $MAIN_WORKTREE..."
-    cd "$MAIN_WORKTREE"
+    if [ -n "$MAIN_WORKTREE" ]; then
+        echo "Copying ignored files from $MAIN_WORKTREE..."
+        cd "$MAIN_WORKTREE"
 
-    # Get list of ignored files, excluding tmp/ directory
-    IGNORED_FILES=$(git ls-files --others --ignored --exclude-standard | grep -v "^tmp/" || true)
+        # Get list of ignored files, excluding tmp/ directory and wonk/node_modules/
+        IGNORED_FILES=$(git ls-files --others --ignored --exclude-standard | grep -v "^tmp/" | grep -v "^node_modules/" | grep -v "^wonk/node_modules/" | grep -v "^transactional-email/node_modules/"|| true)
 
-    if [ -n "$IGNORED_FILES" ]; then
-        # Copy each ignored file maintaining directory structure
-        echo "$IGNORED_FILES" | while IFS= read -r file; do
-            if [ -f "$file" ]; then
-                # Create target directory if it doesn't exist
-                target_dir="$NEW_WORKTREE_DIR/$(dirname "$file")"
-                mkdir -p "$target_dir"
+        if [ -n "$IGNORED_FILES" ]; then
+            # Copy each ignored file maintaining directory structure
+            echo "$IGNORED_FILES" | while IFS= read -r file; do
+                if [ -f "$file" ]; then
+                    # Create target directory if it doesn't exist
+                    target_dir="$NEW_WORKTREE_DIR/$(dirname "$file")"
+                    mkdir -p "$target_dir"
 
-                # Copy the file
-                cp "$file" "$NEW_WORKTREE_DIR/$file"
-                echo "  Copied: $file"
-            fi
-        done
-        echo "Finished copying ignored files"
+                    # Copy the file
+                    cp "$file" "$NEW_WORKTREE_DIR/$file"
+                    echo "  Copied: $file"
+                fi
+            done
+            echo "Finished copying ignored files"
+        else
+            echo "No ignored files to copy"
+        fi
     else
-        echo "No ignored files to copy"
+        echo "Warning: No main worktree found (looked for: main, master, develop)"
+        echo "Ignored files will not be copied"
     fi
-else
-    echo "Warning: No main worktree found (looked for: main, master, develop)"
-    echo "Ignored files will not be copied"
 fi
 
 # Open in Cursor and set up layout
@@ -196,4 +219,8 @@ tell application "Cursor"
 end tell
 EOF
 
-echo "✅ New worktree '$BRANCH_NAME' created successfully at $NEW_WORKTREE_DIR"
+if [ "$WORKTREE_EXISTS" = true ]; then
+    echo "✅ Opened existing worktree '$BRANCH_NAME' at $NEW_WORKTREE_DIR"
+else
+    echo "✅ New worktree '$BRANCH_NAME' created successfully at $NEW_WORKTREE_DIR"
+fi
