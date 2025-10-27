@@ -2,7 +2,7 @@
 
 # Generated with Claude Code (sorry about the mess)
 # wt - Create a new git worktree and copy ignored files which may contain secrets and other config we don't want to commit but do want available in the new worktree.
-# Opens Cursor afterwards with the new worktree open, in a layout I enjoy using.
+# Opens editor afterwards with the new worktree open.
 # Usage: wt <branch-name>
 # Assumes you have a directory containing a bare git repo, with subdirectories for each worktree.
 
@@ -181,43 +181,9 @@ if [ "$WORKTREE_EXISTS" = false ]; then
     fi
 fi
 
-# Open in Cursor and set up layout
-echo "Opening new worktree in Cursor..."
-cursor "$NEW_WORKTREE_DIR"
-
-# Wait for Cursor to fully load, then set up the layout
-echo "Setting up terminal and Claude Code..."
-sleep 2
-
-# This is truly the dumbest way to configure the layout of Cursor, but it works.
-osascript <<EOF
-tell application "Cursor"
-    activate
-    delay 1
-
-    -- Close Cursor Chat sidebar (Cmd+L toggles it)
-    tell application "System Events"
-        keystroke "l" using {command down}
-        delay 0.25
-
-        -- Open terminal panel
-        keystroke "\`" using {control down}
-        delay 0.25
-
-        -- Launch Claude Code
-        keystroke "p" using {command down, shift down}
-        delay 0.25
-
-        repeat with char in "Run Claude Code"
-            keystroke char
-            delay 0.025
-        end repeat
-        delay 0.25
-        key code 36 -- Enter key
-        delay 0.25
-    end tell
-end tell
-EOF
+# Open in editor and set up layout
+echo "Opening new worktree..."
+code "$NEW_WORKTREE_DIR"
 
 if [ "$WORKTREE_EXISTS" = true ]; then
     echo "✅ Opened existing worktree '$BRANCH_NAME' at $NEW_WORKTREE_DIR"
